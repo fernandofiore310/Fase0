@@ -2,6 +2,11 @@
 
 ## Fase 0
 
+### 2026-08-31 — Antes de começar
+Realizei todo o setup em 1h:30min cravado.
+Gastei bastante tempo entendendo sobre git, visto que estava enferrujado e quis criar o meu repositório via terminal. Foi uma tarefa difícil. Fiquei com dúvidas que vou usar o Gemini para me ajudar.
+Também tive dúvida sobre as intalações do vs code, python e do git, no sentido de que não sabia em que local estavam sendo instaladas essas aplicações.
+
 ### 2026-09-03 — Diagnóstico a frio (4h)
 Bloco A: terminei X de 8 em 75 min. Travei em: ...
 Consultas que precisei fazer: ...
