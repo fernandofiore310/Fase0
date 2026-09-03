@@ -70,7 +70,7 @@ class Sistema:
         Sistema.veiculos.remove(cliente)
 
     def gera_relatorio():
-        teste = 1
+        teste = 1 #teste do pull request
 
 class Cliente:
 
