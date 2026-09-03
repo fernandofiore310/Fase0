@@ -70,7 +70,7 @@ class Sistema:
         Sistema.veiculos.remove(cliente)
 
     def gera_relatorio():
-        pass
+        teste = 1
 
 class Cliente:
 
