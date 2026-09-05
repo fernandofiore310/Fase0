@@ -92,11 +92,57 @@ No Bloco C, achava que ia me dar melhor com a questao do ambiente virtual, no en
 Ja em relacao aos comandos git, achei que fui como esperava ir. Git eh algo que vamos acabar usando bastante e tenho certeza que vou ir melhorando e entendendo com o tempo.
 
 ### 2026-09-04 — Correção (2h)
-Reescrevi: ...
-Aprendi: ...
-Ainda não entendo: ...
-```
 
-Uma entrada por sessão. Três campos fixos em todas: **o que fiz**, **onde travei**,
-**o que ainda não entendo**. O terceiro é o mais importante e é o que a maioria das
-pessoas não escreve.
+O que fiz:
+
+Antes de atacar os exercicios, mandei a documentacao de ambiente virutal do python, git guides e documentacao do gitignore para o Gemini e pedi um resumo. Li e fui para os exercicios
+
+No exercicio A1, fiz uma tatica que usei em todos os exercicios: usei muitos prints, de modo que pudesse ver o que cada coisa estava retornando. Primeira coisa que fiz foi percorrer a lista de entrada e deixar todos os nomes em minusculas.
+Em seguida veio a parte que  acabei ficando mais tempo, que foi raciocinando como ia tratar os diferentes tipos de nomes que poderiam vir na lista. Tendo mapeado os tipos, tratei, com um b loco if/else primeiro os nomes que vinham com virgula e os que nao vinham. Comecei dando um split para separar nome e sobrenome e depois juntei eles usando a funcao format (eu lembrava que strings podiam ser somadas). Em ambos os blocos, usei algumas funcoes que perguntei para o Gemini e adicionei ao meu repertorio, dentre elas, o replace, que me ajudou a remover a virgula, e ate mesmo o join. Tambem, criei uma lista de preposicoes, para nao colocar maiusculas nelas. Tudo isso, sempre testando com varios prints e entendendo os estados.
+
+
+No exercicio A4, lembrei de como adicionava valor e chaves a um dicionario vazio e tratei o testo de forma melhor. Usei o gemini para tirar a duvida da ordem alfabetica, e ele me apresentou o sorted, que me ajudou tanto nesse exercicio quanto em outros. Tambem, ele me apresentou o del, que tinha esquecido como usava, para tirar palavras que ja tinha adicionado a lista final da lista intermediaria.
+
+
+No A2, tambem usei o gemini para me lembrar da funcao round, que arredondava para 2 casas decimais. Lembrei de usar o len tambem, que nesse exercicio foi bem importante. Tambem tratei o caso dos alunos que nao tinham notas registradas. E o gemini tambem me lembrou da funcao remove, que usei para tirar os alunos sem nota.
+
+
+No A6, ja estava com o tempo mais curto, faltava cerca de 15 minutos para acabar. Usei o Chatgpt para gerar as 25 linhas de log. E de resto, fiz tudo por conta, sem problemas.
+
+
+O A7 fiquei sem tempo para fazer infelizmente. Fa;tavam poucos minutos, cerca de 2, e nao sabia o que era yield. Teria que ler documentacao e passar um tempo pensando no raciocinio logico por tras.
+
+
+Vale ressaltar, que em todos os exercicios, eu que criei a estrutura e o desenvolvimento do algoritmo. Nao usei nenhuma ajuda para pensar em COMO fazer o exercicio. O raciocinio logico por tras foi todo meu. O ponto era, por exemplo, quando queria tirar algo de uma lista, e nao lembrava de uma funcao. Nesse caso, consultava o gemini para me explicar que funcao eu poderia usar.
+
+
+No Bloco 2, ativei o venv usando o resumo que o Gemini me passou da documentacao oficial do python. Aprendi a desativar (deactivate) e ativar de novo. Foi bem util.
+Em seguida, rodei os dois casos que voce mencionou usando o where python. No entanto, em ambos os casos, o terminal nao mostrou nada, apenas aparecia que o comando tinha sido rodado, mas o terminal nao "printava" nada.
+Depois, criei o arquivo .gitignore na raiz do repositorio, e com o resumo do gemini, montei meu proprio arquivo, e ainda coloquei comentarios didaticos para me ajudar. Comecei a ter nocao da funcionalidade de *, /, **, entre outros. 
+Usei o comando git checkout para voltar para  a versao antiga do A7, que tinha apagado no Bloco 1. Entendi que eh como se fosse uma volta no tempo, visto que eu nao tinha commitado o exercicio A7 apagado ainda.
+Criei a pasta BlocoC e coloquei dois arquivos, um deles com o que fiz na vizualizacao dos grafos e a minha interpretacao.
+Em seguida, usei o comando git revert para reverter o commit teste que fiz. Peguei no Git Guides isso. Documentei tudo tambem na pasta BlocoC.
+Removi a linha de teste do B1.py, e commitei separado tudo, no entanto, acredito que as mensagens nao seguiram o seu padrao.
+
+
+Onde travei:
+Acredito que usei bastante tempo nos exs do Bloco1. Como disse anteriormente, nas 1h30min de trabalho, fiz 4 exs, sendo que o A6 faltavam 15 minutos. Muito disso por conta de um raciocinio que ia se desenvolvendo aos poucos, e varios testes e tentativas e algumas mudancas na logica em alguns exercicios. No Bloco 2 acredito que nao travei, so levei mais tempo, pois estava lendo documentacao e preparando um .gitignore mais didatico.
+
+
+O que ainda nao entendo:
+Como vimos, toda questao de yield do A7, pois nunca vi isso em aulas. Alem do A8, que por masi que nao tenha aberto ele hoje, lembro que nao tinha muita ideia de como faze-lo.
+As minhas duvidas sobre o segundo bloco estao nos documentos .md da pasta BlocoC. La vc vai ver as minhas duvidas.
+
+
+Sensacao vs Resultado
+Acredito que fui bem nos exericios que fiz. Bem melhor que ontem, mesmo com um exercicio incompleto por falta de tempo. Me senti melhor hoje programando com a consulta.
+
+
+Consultas:
+Gemini
+
+https://docs.python.org/pt-br/3/tutorial/venv.html
+
+https://git-scm.com/docs/gitignore
+
+https://github.com/git-guides
