@@ -1,0 +1,42 @@
+# Diretórios Inteiros
+.venv/ 
+#Torna o diretório oculto em sistemas Unix-like (Linux/macOS) e oculta por padrão no Windows. É a convenção moderna padrão do Python para que pastas de infraestrutura local não poluam a listagem de arquivos (ls / Explorer).
+
+#./venv 
+#O ./ indica explicitamente o diretório atual de trabalho. O nome da pasta é apenas venv, o que significa que o diretório não é oculto.recursivamente.
+
+__pycache__/ 
+# Cache de bytecode gerado pelo interpretador Python ao importar módulos.
+
+
+# Nomes de Arquivo e Extensões diretas
+# * 
+# Funciona como coringa (wildcard). Ignora qualquer arquivo em qualquer subdiretório do repositório, desde que os arquivos ainda não estejam sendo rastreados pelo Git.
+*.pyc
+# Ignora qualquer arquivo que termine com .pyc em qualquer subdiretório do repositório.
+
+
+# Caminhos especificos vs. globais
+config.json 
+# Sem a barra no início, ignora qualquer arquivo chamado config.json em qualquer pasta do projeto.
+
+# /config.json 
+# A barra no início ancora a regra no diretório raiz do repositório. Ignora apenas o config.json da raiz, mas rastreia um eventual src/config.json
+
+# Variaveis de ambiente e credenciais
+.env 
+# Arquivos de configuração local contendo chaves de API, senhas e tokens de banco de dados. Nunca devem ir para o controle de versão.
+
+# .env.*
+# Ignora variações como .env.local ou .env.production
+
+
+# Excecoes (Negação)
+# *.log
+# !importante.log
+# Ignora todos os arquivos .log, com exceção do arquivo importante.log
+
+
+# Subdiretorios coringa (**)
+# **/logs/*.log
+# O ** casa com zero ou mais diretórios intermediários. Essa regra ignora arquivos .log dentro de qualquer pasta chamada logs em qualquer nível de profundidade.
