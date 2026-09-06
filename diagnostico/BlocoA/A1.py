@@ -18,7 +18,7 @@ def list_normalizer(lista_nomes):
             for nome in l:
                 # print(nome[0])
                 if nome not in preposicoes:
-                    nome = nome.replace(nome[0], nome[0].upper()) #string sao imutaveis, eh necessario atribuir um valor a ela
+                    nome = nome[0].upper() + nome[1:] #string sao imutaveis, eh necessario atribuir um valor a ela
                 # print(nome)
                 lista_correta.append(nome)
             # print(lista_correta)
@@ -49,4 +49,3 @@ lista_nomes = ["anna monteiro", "mARCO tULIO", "tulio, mArco", " cleber dos anjo
 lista_final = list_normalizer(lista_nomes=lista_nomes)
 print(lista_final)
 
-# 10min:30s
