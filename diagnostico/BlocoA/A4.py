@@ -1,16 +1,23 @@
 def conta_frequencia(texto, n, stopwords):
     dicionario_palavras = {}
     palavras_frequentes = []
+    pontuacoes = [".", ",", "!", "?", ":", ";", "'", "-"]
 
     texto = texto.lower()
     lista_texto = texto.split()
     for palavra in lista_texto:
-        if palavra not in dicionario_palavras:
-            dicionario_palavras[palavra] = 1
-        else:
-            dicionario_palavras[palavra] += 1
+        for caracter in palavra:
+            # print(caracter)
+            if caracter in pontuacoes:
+                palavra = palavra.replace(caracter, "")
+
+        if palavra not in stopwords:
+            if palavra not in dicionario_palavras:
+                dicionario_palavras[palavra] = 1
+            else:
+                dicionario_palavras[palavra] += 1
     # print(dicionario_palavras)
-    print(sorted(dicionario_palavras.items()))
+    # print(sorted(dicionario_palavras.items()))
     lista_freq = sorted(dicionario_palavras.items())
 
     i = 0
@@ -29,7 +36,9 @@ def conta_frequencia(texto, n, stopwords):
         del lista_freq[index]
         i+=1
 
-    print(palavras_frequentes)
+    return palavras_frequentes
     
 texto = "Meu dia começou assim: mandei quatro ovos com manteiga, com duas fatias de bacon, um quarto de abacate, com um café preto para acompanhar e um suco de laranja natural."
-print(conta_frequencia(texto, 4, []))
+print(conta_frequencia(texto, 4, ["abacate"]))
+
+#feito em 5min e 40s
