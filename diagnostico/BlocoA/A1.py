@@ -30,9 +30,11 @@ def list_normalizer(lista_nomes):
             nome_e_sobrenome = nome_e_sobrenome.split()
             lista_correta = []
             # print(nome_e_sobrenome)
-            for nome in nome_e_sobrenome:
+            for indice, nome in enumerate(nome_e_sobrenome):
+                # print(nome)
+                # print(indice)
                 if nome not in preposicoes:
-                    nome = nome.replace(nome[0], nome[0].upper())
+                    nome = nome[0].upper() + nome[1:]
                 lista_correta.append(nome)
             # print(lista_correta)
             nome_correto = " ".join(lista_correta)
@@ -40,9 +42,11 @@ def list_normalizer(lista_nomes):
             if nome_correto not in lista_normalizada:
                 lista_normalizada.append(nome_correto)
 
-    return lista_normalizada
+    return sorted(lista_normalizada)
 
 
-lista_nomes = ["mARCO tULIO", "tulio, mArco", " cleber dos anjos ", "BeRnARdo mayrinck"]
+lista_nomes = ["anna monteiro", "mARCO tULIO", "tulio, mArco", " cleber dos anjos ", "BeRnARdo mayrinck", "John Arias"]
 lista_final = list_normalizer(lista_nomes=lista_nomes)
 print(lista_final)
+
+# 10min:30s
