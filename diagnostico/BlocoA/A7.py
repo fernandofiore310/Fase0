@@ -1,27 +1,40 @@
 def produz_numeros(limite):
-    seq = [1]
+    soma = 1
     atual = 1
-    i = 0
+    yield 1
 
-    while True:
-        if i == 0:
-            atual = atual + seq[i]
-            if atual >= limite:
-                break
-            seq.append(atual)
+    while soma < limite:
+        yield soma
+        if soma == 1:
+            soma = soma + atual
         else:
-            atual = seq[i] + seq[i-1]
-            if atual >= limite:
-                break
-            seq.append(atual)
-        i+=1
+            soma = soma + atual
+            atual = soma - atual
 
-    # print(seq)
+def main(limite):
+    gerador = produz_numeros(limite)
     soma = 0
-    for n in seq:
-        soma += n
+    for numero in gerador:
+        print(numero)
+        if numero % 2 == 0:
+            soma += numero
     return soma
 
-print(produz_numeros(10))
+print(f"Soma dos pares de Fibonacci: {main(200)}")
 
+# print(produz_numeros(10))
+
+# gerador = produz_numeros(10)
+
+# valor1 = next(gerador)
+# print(valor1)
+# valor2 = next(gerador)
+# print(valor2)
+# valor3 = next(gerador)
+# print(valor3)
+
+# for n in gerador:
+#     print(n)
+
+# feito em cerca de 19 min
 
