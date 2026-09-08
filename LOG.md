@@ -184,7 +184,7 @@ Sensacao vs. resultado
 Acredito que mandei mal no Bloco 4. De resto acho que fui bem.
 
 
-### 2026-09-07 — Revisão (2h)
+### 2026-09-07 — Revisão (1h)
 
 O que fiz:
 Fiz o exercício A6 da maneira correta. Fiz ele eu um tempo de 11-12 minutos, e depois fiquei mais 12 apenas tirando duvidas com o Gemini e fazendo comentários no arquivo.
