@@ -1,89 +1,69 @@
-import time
+from dataclasses import dataclass
+import datetime
 
+@dataclass
 class Sistema:
-
     def __init__(self):
-        self.veiculos = []
-        self.relatorio = {"faturamento_total" : 0,
-                          "faturamento_por_veiculo" : {"Carro": 0, "Moto": 0, "Caminhao": 0},
-                          "permanencia_media" : 0,
-                          }
+        self.estacionados = {}
 
-    def registra_entrada(cliente):
-        cliente.entrada = time.time() #esta em segundos
-        Sistema.veiculos.append(cliente)
+    def __repr__(self):
+        return f"Sistema(estacionados={self.estacionados!r})"
 
-    def registra_saida(cliente):
-        cliente.saida = time.time()
-    
-        tempo = cliente.saida - cliente.entrada
-        tempo = tempo/3600
-
-        if cliente.mensalista == True:
-            cliente.tempo_mensalista += tempo
-            if cliente.tempo_mensalista > 200:
-                tempo_extra = cliente.tempo_mensalista - 200
-                if tempo_extra < 1:
-                    cliente.preco_a_pagar += 8
-                else:
-                    cliente.preco_a_pagar += 12
-                    tempo_extra -= 1
-                    while tempo_extra >= 0:
-                        cliente.preco_a_pagar += 8
-                        tempo_extra -= 1
-            Sistema.relatorio["faturamento_por_veiculo"]["Carro"] += cliente.preco_a_pagar
+    def registra_entrada(self, cliente):
+        if cliente.veiculo.placa not in self.estacionados.values():
+            cliente.horario_entrada = datetime.now()
+            self.estacionados[cliente.veiculo.tipo] = cliente.veiculo.placa
+            print(f"Estacionamento confirmado para veículo de placa: {cliente.veiculo.placa}")
         else:
-            if cliente.veiculo == "Carro":
-                if tempo < 1:
-                    cliente.preco_a_pagar += 8
-                else:
-                    cliente.preco_a_pagar += 12
-                    tempo -= 1
-                    while tempo >= 0:
-                        cliente.preco_a_pagar += 8
-                        tempo -= 1
-                Sistema.relatorio["faturamento_por_veiculo"]["Carro"] += cliente.preco_a_pagar
+            print(f"Cliente já estacionado! Placa: {cliente.veiculo.placa}")
 
-            elif cliente.veiculo == "Moto":
-                if tempo < 1:
-                    cliente.preco_a_pagar += 4
-                else:
-                    cliente.preco_a_pagar += 6
-                    tempo -= 1
-                    while tempo >= 0:
-                        cliente.preco_a_pagar += 4
-                        tempo -= 1
-                Sistema.relatorio["faturamento_por_veiculo"]["Moto"] += cliente.preco_a_pagar
+    def registra_saida(self, cliente):
+        if cliente.veiculo.placa not in self.estacionados.values():
+            print(f"Veículo de placa {cliente.veiculo.placa} não registrado!")
+        else:
+            cliente.horario_saida = datetime.now()
+            tempo = cliente.horario_saida - cliente.horario_entrada
+            del self.estacionados[cliente.veiculo.tipo]
 
-            elif cliente.veiculo == "Caminhao":
-                cliente.preco_a_pagar += 25
-                while tempo >= 0:
-                    cliente.preco_a_pagar += 15
-                    tempo -= 1
-                Sistema.relatorio["faturamento_por_veiculo"]["Caminhao"] += cliente.preco_a_pagar
-
+            if cliente.mensalista:
+                pass
             else:
-                return "Veiculo nao identificado"
+                if cliente.veiculo.tipo == "Carro":
+                    # Calcula o preco cobrado baseado no tempo
+                    pass
+                elif cliente.veiculo.tipo == "Caminhao":
+                    # Calcula o preco cobrado baseado no tempo
+                    pass
+                elif cliente.veiculo.tipo == "Moto":
+                    # Calcula o preco cobrado baseado no tempo
+                    pass
+                else:
+                    # Calcula o preco cobrado baseado no tempo
+                    pass
+                    
+@dataclass
+class Veiculo:
+    tipo : str
+    placa : str
 
-        Sistema.relatorio["faturamento_total"] += cliente.preco_a_pagar
-
-        Sistema.veiculos.remove(cliente)
-
-    def gera_relatorio():
-        pass
-
+@dataclass
 class Cliente:
+    mensalista : bool
+    veiculo : Veiculo
+    horario_entrada: datetime | None = None
+    horario_saida: datetime | None = None
 
-    def __init__(self, mensalista, veiculo):
-        self.mensalista = mensalista
-        self.veiculo = veiculo
-        self.entrada = None
-        self.saida = None
-        self.tempo_mensalista = None
-        self.preco_a_pagar = 0
+carro1 = Veiculo("Carro", "ABC1234")
+caminhao1 = Veiculo("Caminhao", "JJE4545")
+moto1 = Veiculo("Moto", "FOF3100")
 
+cliente1 = Cliente(False, carro1)
 
-# t1 = time.time()
-# time.sleep(4)
-# t2 = time.time()
-# print(t2 - t1)
+estacionamento_centro = Sistema()
+print(repr(estacionamento_centro))
+estacionamento_centro.registra_entrada(cliente1)
+estacionamento_centro.registra_entrada(cliente1)
+print(repr(estacionamento_centro))
+
+# print(repr(moto1))
+# print(repr(cliente1))
