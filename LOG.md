@@ -146,3 +146,39 @@ https://docs.python.org/pt-br/3/tutorial/venv.html
 https://git-scm.com/docs/gitignore
 
 https://github.com/git-guides
+
+
+### 2026-09-06 — POO e correção de bugs (2h)
+
+O que fiz:
+
+No Bloco 1, precisava consertar os bugs de 4 exercícios do Bloco A do diagnostico dentro de 30 minutos. Fiz na ordem A1, A2, A4 e A6. No entanto, dentro do limite de tempo, só consegui fazer os três primeiros. Não deu tempo de arrumar o último.
+No exercício A1, troquei o metodo de deixar a primeira letra do nome maiuscula usando manipulacao de strings ao inves do replace que estava usando antes, que basicamente bugava quando tinha nomes em que a letra inicial era repetida, como anna. E tambem, retornei a lista sorted para arrumar o problema da ordem alfabetica.
+No A2, arrumei todos os problemas. Acredito que o meu problema era o fato de eu nao ter entendido muito bem a diferenca entre um aluno sem nota e um aluno que tirou 0. Pra mim, eram a mesma coisa. Quando entendi a diferenca, consegui consertar.
+No A4, foi mais tranquilo, tanto que foi o que resolvi mais rapido (todos os tempos estao na mensagem de commit individual de cada exercicio). Arrumei a questao do return e das stopwords muito rapido, visto que eram erros de atencao, e o da pontuacao, apenas criei uma lista, percorri as palavras e usei um replace.
+Infelizmente nao deu tempo de fazer o A6, logo, nem toquei no exercicio.
+
+
+No Bloco 2, comecei usando o terminal python e o Gemini para entender certinho a funcionalidade do yield e funcoes geradoras.
+Tendo lido e testado, comecei a programar. A principio, estava usando a lista de novo. Com um aviso do Gemini, percebi que nao era essa rota. Pensei em um raciocinio e apliquei no meu codigo. Fiz o codigo em cerca de 19 minutos.
+
+
+Depois, no Bloco 3, pedi a aula para o Gemini e sanei umas duvidas que tinha. Particularmente nao conhecia o dataclass, o repr, o str e o eq, entao foi bom para pegar uma visao daora.
+
+
+O negocio foi no Bloco 4. Mesmo com o tempo que tinha para desenvolver o codigo e a aula do Gemini, mesmo assim nao fiz o exercicio completo, por sinal, acredito que ele esteja bem cru ainda. 
+
+
+Onde travei:
+A unica coisa que posso dizer que "travei" (nao fui muito bem uma travada) foi no Bloco 4. Por mais que eu tenha tido a aula, a estrtura que o codigo deveria ter apenas nao estava surgindo na minha cabeca. Tanto que, a adicao da classe veiculo e cliente, e o atributo de placa que criei para diferenciar os veiculos, foi algo que o Gemini acabou provocando e me fez pensar. Nao foi uma ideia que eu pensei no momento que o timer comecou a rodar.
+
+
+O que eu ainda nao entendo:
+Ainda nao saquei como pode ser tao mais vantajoso o uso de funcoes geradoras. Sei la, na minha cabeca era mais util ter uma funcao que retornasse direto o que era pedido, ao inves de algo que eu preciso ficar chamando mais de uma vez.
+
+Ja no Bloco 4, o meu problema eh mais entender a estrutura e onde tem que ir certas coisas. Por exemplo, quando acabou o exercicio, fui tirar umas duvidas com o gemini, e ele disse, por exemploi, que o horario de entrada e saida deveriam ser atualizados por um metodo dentro de veiculos, e nao de Sistema (que era o que eu pensava que era o correto). Logo, acredito que falta uma certa experiencia, ou talvez um entendimento de estrutura e de "o que fica em que lugar" e coisas do tipo. Na minha cabeca era bem mais simples desenvolver um estacionamento. Nao sei como nao usar os bloco de if/else para diferenciar os veiculos, mesmo voce falando que nao era o correto. E usei um dicionario para simular o estacionamento, mas novamente, foi algo que o Gemini me provocou. Eu ia usar uma lista, que realmente nao faz muito sentido usar.
+Em conclusao, acredito que meu problema nao esta muito em entendimento de instancias, classes, atributos etc. Esta mais na parte de montar o diagrama do Sistema completo e saber/ter mais clareza sobre o que cada classe deve ter e fazer.
+
+
+Sensacao vs. resultado
+Acredito que mandei mal no Bloco 4. De resto acho que fui bem.
