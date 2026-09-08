@@ -182,3 +182,22 @@ Em conclusao, acredito que meu problema nao esta muito em entendimento de instan
 
 Sensacao vs. resultado
 Acredito que mandei mal no Bloco 4. De resto acho que fui bem.
+
+
+### 2026-09-07 — Revisão (2h)
+
+O que fiz:
+Fiz o exercício A6 da maneira correta. Fiz ele eu um tempo de 11-12 minutos, e depois fiquei mais 12 apenas tirando duvidas com o Gemini e fazendo comentários no arquivo.
+Depois, fiz o A1 de cabeça, mas não consegui fazer em under 15 minutos.
+Por fim, atualizei o .md do Bloco C.
+E ainda sobrou uns 12 minutos da 1 hora disponível.
+
+Onde travei:
+Teve alguns momentos no desenvolvimento do A1, em que eu estava tentando raciocinar em como fazer o exercício, no entanto, acreddito que o fato de ter um tempo curto acabou me deixando meio ansioso, o que nao me fez pensar com calma, e acho que perdi uns minutos com isso.
+
+O que eu ainda nao entendo:
+Acho que estou tranquilo quanto a revisao de hoje.
+
+
+Sensacao vs. resultado
+Fui bem, mas esperava que concluísse o A1 em under 15, algo que não aconteceu.
