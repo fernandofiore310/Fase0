@@ -201,3 +201,21 @@ Acho que estou tranquilo quanto a revisao de hoje.
 
 Sensacao vs. resultado
 Fui bem, mas esperava que concluísse o A1 em under 15, algo que não aconteceu.
+
+
+### 2026-09-08 — Drills (2h)
+
+O que fiz:
+Fiz os 20 exs do drill. Os tempos de cada bateria estao na mensagem de commit. Mas dos 100 minutos que tinha disponivel para faze-los, fiz em 76minutos e 30segundos.
+Nao foram todos os exercicios que acertei de primeira, mas eventualmente consegui arrumar todos. So teve um no qual estourei o tempo limite (todos os tempos estao documentados como comentarios em cada arquivo de exercicio).
+Todas as minhas consultas de funcoes e python foram com o gemini. Usei o gpt para discutir alguns contextos e motivos sobre as minhas respostas dos exercicios.
+
+Onde travei:
+Nao diria que travei, mas teve algumas coisas que tive que tirar um tempo para ler sobre, entender e ver como usar no exercicio. Dentre elas estao o any() e o all(), o max e sorted com o parametro key, o list e dict comprehension, o zip, e todas os metodos da colecao collection que o chat pediu para usar (Counter e defaultdict).
+
+O que eu ainda nao entendo:
+Nao vou falar que estou com todo o conteudo de hoje quentinho e decorado, mas acredito que nao hora que consigo identificar um problema que pode ser resolvido com essas ferramentas, e entao, vou ler a documentacao dessas funcoes para lembrar sobre a estrutura delas.
+
+
+Sensacao vs. resultado
+Acredito que fui bem, considerando o tempo abaixo do tempo total e que apenas estourei o tempo de 6min em um exercicio.
