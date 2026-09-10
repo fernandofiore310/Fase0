@@ -47,7 +47,7 @@ class Carro(Veiculo):
         # tempo = tempo/3600
         tarifa = 0
         if tempo < 1:
-            tarifa += 8
+            tarifa += 12
         else:
             tarifa += 12
             tempo -= 1
@@ -64,7 +64,7 @@ class Moto(Veiculo):
         # tempo = tempo/3600
         tarifa = 0
         if tempo < 1:
-            tarifa += 4
+            tarifa += 6
         else:
             tarifa += 6
             tempo -= 1
@@ -80,23 +80,26 @@ class Caminhao(Veiculo):
         # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
         # tempo = tempo/3600
         tarifa = 25
+        tempo -= 1
         while tempo > 0:
             tarifa += 15
             tempo -= 1
         return tarifa
 
 
-carro1 = Carro("AAC1234")
-caminhao1 = Caminhao("JJE4545")
-moto1 = Moto("FOF3100")
+if __name__ == "__main__":
 
-estacionamento_centro = Sistema()
-print(repr(estacionamento_centro))
-estacionamento_centro.registra_entrada(carro1)
-print(repr(estacionamento_centro))
-print(estacionamento_centro.verifica(carro1))
-print(estacionamento_centro.verifica(moto1))
-estacionamento_centro.registra_saida(carro1, 2.0)
+    carro1 = Carro("AAC1234")
+    caminhao1 = Caminhao("JJE4545")
+    moto1 = Moto("FOF3100")
 
-# print(repr(moto1))
-# print(repr(cliente1))
+    estacionamento_centro = Sistema()
+    print(repr(estacionamento_centro))
+    estacionamento_centro.registra_entrada(carro1)
+    print(repr(estacionamento_centro))
+    print(estacionamento_centro.verifica(carro1))
+    print(estacionamento_centro.verifica(moto1))
+    estacionamento_centro.registra_saida(carro1, 2.0)
+
+    # print(repr(moto1))
+    # print(repr(cliente1))
