@@ -254,3 +254,26 @@ E não li o que o ruff devolveu, então não sei como usá-lo para melhorar meu 
 
 Sensacao vs. resultado
 Acredito que não soube respeitar o tempo, o que me desgastou e me prejudicou no resto. Sempre faço isso com teoria nova: quero entender todos os minimos detalhes sem aplicar e construir toda a história e o funcionamento passo a passo das coisas, que acabo me desgastando muito com isso e acabo me ferrando.
+
+
+### 2026-09-10 — Bloco Nobre (4h)
+
+O que fiz:
+Comecei pelo Bloco 1, onde terminei em cerca de 20 minutos antes do esperado. Os testes estavam praticamente prontos, porem com erros bobos, que arrumei rápido. Resolvi problemas como: não escrever o src no caminho de importação e como escrever as fixtures nos testes sem se preocupar com a funcao de baixo (isso é apenas algo do parametrize), e escrevi testes do assert normal só para ter.
+
+O Bloco 2 também terminei com antecedência. Poderia ter ido ainda mais rápido se eu não tivesse lido a página de tutorial do ruff. Tirei algumas duvidas com o Claude e Gemini e resolvi um bug com o GPT, onde basicamente tinha escrito tool-ruff ao invés de tool.ruff no pyproject.toml. Os bugs arrumei bem rápido, tirando o do datetime que pra ser sincero, não chequei o erro.
+
+No Bloco 3, estourei o tempo em cerca de 10 minutos acho. Passei bastante tempo pensando e arrumando o relatorio, e usei algumas dicas do Claude para criar o dicionario de dicionarios que é o relatório que desenvolvi. Além disso, usei o GPT para me ajudar a identificar um bug, que basicamente estava na minha tentativa de soma dos valores de faturamento e tempo total. Em resumo, estava tentando somar direto do .values, ao inves de percorrer antes a lista que o .values gera. Quando entendi isso, deu certo.
+Depois, com pouco tempo sobrando, pensei no raciocino do mensalista e acho que desta vez pensei da maneira mais correta e eficiente. So falta aplicar agora.
+
+Onde travei:
+Diria que dei uma leve travada no raciocinio e implementacao do relatorio. Depois da dica do Claude de dicionario integrado, as coisas comecaram a andar mais.
+No pouco tempo que fiquei fazendo o mensalista, fiquei meio travado em como contabilizar e acompanhar as 200 horas de franquia do mensalista.
+
+
+O que eu ainda nao entendo:
+Não li o erro do datetime que o ruff trouxe. Mas, por outro lado, nao estou mais usando ele.
+Não entendi e nem li o Protocol ainda.
+
+Sensacao vs. resultado
+Acredito que fiu bem hoje. Infelizmente, estourei o tempo no Bloco 3, mas não acho que cometi erros muito graves no meu codigo.
