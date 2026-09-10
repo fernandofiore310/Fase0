@@ -1,0 +1,1 @@
+# pelo que entendi, apenas a existência desse arquivo já indica que o diretório que ele se encontra é um pacote e pode ser importado.
