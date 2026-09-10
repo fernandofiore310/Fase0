@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
+from collections import defaultdict
 
 
 @dataclass
@@ -10,21 +11,45 @@ class Sistema:
 
     def registra_entrada(self, veiculo):
         veiculo.registra_entrada()
-        self.estacionamento[veiculo.placa] = [veiculo, 0]
+        self.estacionamento[veiculo.placa] = veiculo.__class__.__name__
 
     def registra_saida(self, veiculo, tempo):
-        tarifa = veiculo.registra_saida_e_calcula_tarifa(tempo)
-        print(f"Total a pagar: {tarifa}")
-        self.atualiza_relatorio(veiculo, tarifa)
+        if veiculo.placa in self.estacionamento:
+            tarifa = veiculo.registra_saida_e_calcula_tarifa(tempo)
+            self.atualiza_relatorio(veiculo, tarifa, tempo)
+            del self.estacionamento[veiculo.placa]
+            print(f"Veículo de placa {veiculo.placa} saiu do estacionamento")
+            print(f"Total que veículo de placa {veiculo.placa} tem a pagar: {tarifa}")
+        else:
+            print("Veículo não encontrado no estacionamento!")
 
-    def atualiza_relatorio(self, veiculo, tarifa):
-        pass
+    def atualiza_relatorio(self, veiculo, tarifa, tempo):
+        nome = veiculo.__class__.__name__
+        if nome not in self.relatorio:
+            self.relatorio[nome] = {}
+            self.relatorio[nome]["Faturamento"] = tarifa
+            self.relatorio[nome]["Quantidade Veiculos"] = 1
+            self.relatorio[nome]["Tempo Total"] = tempo
+        else:
+            self.relatorio[nome]["Faturamento"] += tarifa
+            self.relatorio[nome]["Quantidade Veiculos"] += 1
+            self.relatorio[nome]["Tempo Total"] += tempo
+
+    def gera_relatorio(self):
+        print("----------------------------------------------")
+        print("Relatório Diário do Estacionamento")
+        print(f"Faturamento total do dia: {sum(dados["Faturamento"] for dados in self.relatorio.values())}")
+        print(f"Faturamento de Carros: {self.relatorio["Carro"]["Faturamento"] if "Carro" in self.relatorio else 0.0}")
+        print(f"Faturamento de Motos: {self.relatorio["Moto"]["Faturamento"] if "Moto" in self.relatorio else 0.0}")
+        print(f"Faturamento de Caminhões: {self.relatorio["Caminhao"]["Faturamento"] if "Caminhao" in self.relatorio else 0.0}")
+        print(f"Permanência Média: {sum(dados["Tempo Total"] for dados in self.relatorio.values())/sum(dados["Quantidade Veiculos"] for dados in self.relatorio.values()) if sum(dados["Quantidade Veiculos"] for dados in self.relatorio.values()) != 0 else 0.0}")
+        print("----------------------------------------------")
 
     def verifica(self, veiculo):
         if any(placa == veiculo.placa for placa in self.estacionamento):
-            print(f"Veículo de placa {veiculo.placa} estacionado")
+            print(f"Veículo de placa {veiculo.placa} está estacionado")
         else:
-            print(f"Veículo de placa {veiculo.placa} não estacionado")
+            print(f"Veículo de placa {veiculo.placa} não está estacionado")
 
 @dataclass
 class Veiculo(ABC):
@@ -34,7 +59,8 @@ class Veiculo(ABC):
     tempo_estacionado: float = 0.0
 
     def registra_entrada(self):
-        self.horario_entrada = datetime.now()
+        # self.horario_entrada = datetime.now()
+        print(f"Veículo de placa {self.placa} estacionado!")
 
     @abstractmethod
     def registra_saida_e_calcula_tarifa(self, tempo):
@@ -79,20 +105,56 @@ class Caminhao(Veiculo):
             tempo -= 1
         return tarifa
 
+@dataclass
+class Mensalista(Carro):
+
+    franquia_restante : float = 200.0
+
+    def verifica_franquia(self, tempo):
+        # self.horario_saida = datetime.now()
+        # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
+        # tempo = tempo/3600
+        self.franquia_restante -= tempo
+        if self.franquia_restante <= 0:
+            # aqui, discuti com o Gemini, e poderia usar o super() para chamar a funcao de calcular tarifa da classe pai (Carro())
+            pass
+
 
 if __name__ == "__main__":
 
     carro1 = Carro("AAC1234")
+    print(carro1.__class__)
+    print(carro1.__class__.__name__)
+    print(type(carro1.__class__.__name__))
+    # Teste 1: Veja o tipo de cada elemento
+    # print(type(Carro))   # O que retorna?
+    # print(type(carro1))  # O que retorna?
+
+    # Teste 2: Tente acessar a tupla de atributos da instância vs classe
+    # print(dir(carro1))   # Procure se __name__ está aqui
+    # print(dir(Carro))    # Procure se __name__ está aqui
+    # print(str(carro1))
+
     caminhao1 = Caminhao("JJE4545")
+    caminhao2 = Caminhao("ABB7265")
     moto1 = Moto("FOF3100")
 
     estacionamento_centro = Sistema()
-    print(repr(estacionamento_centro))
+    # print(repr(estacionamento_centro))
     estacionamento_centro.registra_entrada(carro1)
-    print(repr(estacionamento_centro))
-    estacionamento_centro.verifica(carro1)
-    estacionamento_centro.verifica(moto1)
+    estacionamento_centro.registra_entrada(caminhao1)
+    estacionamento_centro.registra_entrada(caminhao2)
+    estacionamento_centro.registra_entrada(moto1)
+    # print(repr(estacionamento_centro))
+    # print(estacionamento_centro.estacionamento)
+    # estacionamento_centro.verifica(carro1)
+    # estacionamento_centro.verifica(moto1)
     estacionamento_centro.registra_saida(carro1, 2.0)
+    # estacionamento_centro.gera_relatorio()
+    estacionamento_centro.registra_saida(caminhao1, 2.5)
+    estacionamento_centro.registra_saida(caminhao2, 1.5)
+    estacionamento_centro.registra_saida(moto1, 4.0)
+    estacionamento_centro.gera_relatorio()
 
     # print(repr(moto1))
     # print(repr(cliente1))
