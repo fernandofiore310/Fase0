@@ -1,6 +1,7 @@
-from datetime import datetime
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
+from datetime import datetime
+
 
 @dataclass
 class Sistema:
@@ -20,10 +21,10 @@ class Sistema:
         pass
 
     def verifica(self, veiculo):
-        for placa in self.estacionamento:
-            if veiculo.placa == placa:
-                return "Veículo estacionado"
-        return "Veículo não estacionado"
+        if any(placa == veiculo.placa for placa in self.estacionamento):
+            print(f"Veículo de placa {veiculo.placa} estacionado")
+        else:
+            print(f"Veículo de placa {veiculo.placa} não estacionado")
 
 @dataclass
 class Veiculo(ABC):
@@ -45,15 +46,11 @@ class Carro(Veiculo):
         # self.horario_saida = datetime.now()
         # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
         # tempo = tempo/3600
-        tarifa = 0
-        if tempo < 1:
-            tarifa += 12
-        else:
-            tarifa += 12
+        tarifa = 12 #agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
+        tempo -= 1
+        while tempo > 0:
+            tarifa += 8
             tempo -= 1
-            while tempo > 0:
-                tarifa += 8
-                tempo -= 1
         return tarifa
 
 class Moto(Veiculo):
@@ -62,15 +59,11 @@ class Moto(Veiculo):
         # self.horario_saida = datetime.now()
         # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
         # tempo = tempo/3600
-        tarifa = 0
-        if tempo < 1:
-            tarifa += 6
-        else:
-            tarifa += 6
+        tarifa = 6 #agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (6)
+        tempo -= 1
+        while tempo > 0:
+            tarifa += 4
             tempo -= 1
-            while tempo > 0:
-                tarifa += 4
-                tempo -= 1
         return tarifa
 
 class Caminhao(Veiculo):
@@ -97,8 +90,8 @@ if __name__ == "__main__":
     print(repr(estacionamento_centro))
     estacionamento_centro.registra_entrada(carro1)
     print(repr(estacionamento_centro))
-    print(estacionamento_centro.verifica(carro1))
-    print(estacionamento_centro.verifica(moto1))
+    estacionamento_centro.verifica(carro1)
+    estacionamento_centro.verifica(moto1)
     estacionamento_centro.registra_saida(carro1, 2.0)
 
     # print(repr(moto1))

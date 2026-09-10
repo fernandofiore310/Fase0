@@ -12,3 +12,11 @@ dev = [
     "pytest>=8.0.0",
     "ruff>=0.3.0",
 ]
+
+[tool.ruff]
+# Mantém os diretórios padrão que o Ruff já ignora (.venv, .git, etc.) 
+# e adiciona os seguintes diretórios que quero ignorar:
+extend-exclude = [
+    "diagnostico",
+    "drills",
+]

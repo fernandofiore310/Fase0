@@ -1,5 +1,11 @@
-from projeto_estacionamento.main import Sistema, Veiculo, Carro, Caminhao, Moto #a pasta src nao deve ser referida como diretorio quando vai importar um arquivo
 import pytest
+
+from projeto_estacionamento.main import (  #a pasta src nao deve ser referida como diretorio quando vai importar um arquivo
+    Caminhao,
+    Carro,
+    Moto,
+)
+
 
 #Fixtures podem ser declaradas em cima, e as funcoes que usam a sua saida como parametro podem ficar em qualquer lugar do arquivo
 @pytest.fixture
