@@ -4,8 +4,8 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Sistema:
-    estacionamento : dict = field(default_factory=dict)
-    relatorio : dict = field(default_factory=dict)
+    estacionamento: dict = field(default_factory=dict)
+    relatorio: dict = field(default_factory=dict)
 
     def registra_entrada(self, veiculo):
         veiculo.registra_entrada()
@@ -36,11 +36,21 @@ class Sistema:
     def gera_relatorio(self):
         print("----------------------------------------------")
         print("Relatório Diário do Estacionamento")
-        print(f"Faturamento total do dia: {sum(dados["Faturamento"] for dados in self.relatorio.values())}")
-        print(f"Faturamento de Carros: {self.relatorio["Carro"]["Faturamento"] if "Carro" in self.relatorio else 0.0}")
-        print(f"Faturamento de Motos: {self.relatorio["Moto"]["Faturamento"] if "Moto" in self.relatorio else 0.0}")
-        print(f"Faturamento de Caminhões: {self.relatorio["Caminhao"]["Faturamento"] if "Caminhao" in self.relatorio else 0.0}")
-        print(f"Permanência Média: {sum(dados["Tempo Total"] for dados in self.relatorio.values())/sum(dados["Quantidade Veiculos"] for dados in self.relatorio.values()) if sum(dados["Quantidade Veiculos"] for dados in self.relatorio.values()) != 0 else 0.0}")
+        print(
+            f"Faturamento total do dia: {sum(dados['Faturamento'] for dados in self.relatorio.values())}"
+        )
+        print(
+            f"Faturamento de Carros: {self.relatorio['Carro']['Faturamento'] if 'Carro' in self.relatorio else 0.0}"
+        )
+        print(
+            f"Faturamento de Motos: {self.relatorio['Moto']['Faturamento'] if 'Moto' in self.relatorio else 0.0}"
+        )
+        print(
+            f"Faturamento de Caminhões: {self.relatorio['Caminhao']['Faturamento'] if 'Caminhao' in self.relatorio else 0.0}"
+        )
+        print(
+            f"Permanência Média: {sum(dados['Tempo Total'] for dados in self.relatorio.values()) / sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) if sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) != 0 else 0.0}"
+        )
         print("----------------------------------------------")
 
     def verifica(self, veiculo):
@@ -49,9 +59,10 @@ class Sistema:
         else:
             print(f"Veículo de placa {veiculo.placa} não está estacionado")
 
+
 @dataclass
 class Veiculo(ABC):
-    placa : str
+    placa: str
     # horario_entrada: datetime | None = None #field(default_factory=datetime.now) #uso o field para incia-lo com um valor padrao
     # horario_saida: datetime | None = None #uso isso para inicia-lo como vazio
     tempo_estacionado: float = 0.0
@@ -64,34 +75,38 @@ class Veiculo(ABC):
     def registra_saida_e_calcula_tarifa(self, tempo):
         pass
 
-class Carro(Veiculo):
 
+class Carro(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
         # self.horario_saida = datetime.now()
         # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
         # tempo = tempo/3600
-        tarifa = 12 #agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
+        tarifa = (
+            12  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
+        )
         tempo -= 1
         while tempo > 0:
             tarifa += 8
             tempo -= 1
         return tarifa
 
-class Moto(Veiculo):
 
+class Moto(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
         # self.horario_saida = datetime.now()
         # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
         # tempo = tempo/3600
-        tarifa = 6 #agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (6)
+        tarifa = (
+            6  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (6)
+        )
         tempo -= 1
         while tempo > 0:
             tarifa += 4
             tempo -= 1
         return tarifa
 
-class Caminhao(Veiculo):
 
+class Caminhao(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
         # self.horario_saida = datetime.now()
         # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
@@ -103,10 +118,10 @@ class Caminhao(Veiculo):
             tempo -= 1
         return tarifa
 
+
 @dataclass
 class Mensalista(Carro):
-
-    franquia_restante : float = 200.0
+    franquia_restante: float = 200.0
 
     def verifica_franquia(self, tempo):
         # self.horario_saida = datetime.now()
@@ -119,7 +134,6 @@ class Mensalista(Carro):
 
 
 if __name__ == "__main__":
-
     carro1 = Carro("AAC1234")
     print(carro1.__class__)
     print(carro1.__class__.__name__)
