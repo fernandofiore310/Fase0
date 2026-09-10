@@ -219,3 +219,38 @@ Nao vou falar que estou com todo o conteudo de hoje quentinho e decorado, mas ac
 
 Sensacao vs. resultado
 Acredito que fui bem, considerando o tempo abaixo do tempo total e que apenas estourei o tempo de 6min em um exercicio.
+
+
+### 2026-09-09 — Fixação e conteúdo novo (3h)
+
+O que fiz:
+Basicamente, comecei estudando os 4 contúdos que você me passou, mas principalmente focando nas duas primeiras perguntas da leitura dirigida, que eram sobre Packaging em python. Vou ter que admitir algo, passei bem dos 25 minutos, pois fui ficando curioso e fazendo mais perguntas e anotando cada vez mais coisa, o que consumiu bastante tempo, e mais importante, consumiu bastante da minha energia.
+Mas, entendi o que é um pacote e o que significa empacotar, que é basicamente disponibilizar certos códigos e arquivos para que possam ser usados em outro ambiente, diretório, e até mesmo outra máquina (essa parte de ver em outra máquina não me aprofundei tanto), e entendi o que o pyproject.toml é responsável (imagino que isso seja uma mudança recente, pois lembro de trabalhar em um projeto da faculdade no primeiro semestre de 2024 e usar steup.py ainda). Entendi sobre o build-system e o project, sobre o Build-backend (por mais que eu ainda não saiba qual o melhor tipo para se usar) e Build-frontend (que é onde o usuário interage). Também entendi sobre os dois diferentes formatos de distribuição que o backend gera e entendi a importânncia de sempre criar o projeto que você quer empacotar na pasta src/. Por fim, ficou claro também a diferença dos dois tipos de dependências que o meu projeto tem.
+Como gastei bastante tempo e energia nessa parte, passei um pouco rápido pelo pytest, onde pedi uma aula para o Gemini, mas acredito que eu tenha entendido sua função: testar o seu código, para ver se o resultado que você quer está saindo como você espera. Isso evita o uso de vários prints ao longo do código. O fixture e o parametrize eu entendi a função até, mas tenho que admitir que a implementação não foi tão boa (vou explicar mais para frente).
+
+No Bloco 2, li bem rápido sobre ABC e Protocol. Tenho que admitir que não me esforcei muito para tentar entender o Protocol, e foquei só no ABC, que pelo que entendi, é uma ferramenta que permite classes filhas absorverem o conteúdo de uma classe pai, sem precisar repetir código. Criei o documento docs/classes.md e escrevi bem brevemente e até com uma certa falta de vontade o que fiz.
+
+No Bloco 3, comecei criando a pasta src/, e passei as instruções do Claude do Bloco 3 para o Gemini e falei para ele me ajudar a pensar em como resolver, porém sem dar respostas. 
+Então, a primeira coisa que fiz foi pesquisar na internet sobre o arquivo __init__.py e ver que podia não colocar nada dentro dele, e que ele era apenas um arquivo que tornava o meu projeto "importável". Em seguida, desenvolvi sozinho o project.toml, tirando algumas dúvidas com o Gemini, como qual versão do Python colocar, se eu podia escolher a version, e quais versões colocar de ruff e pytest.
+Depois, rodei o pip install -e, que confesso que ainda não entendi o porque de usa-lo (a flag -e no caso, sei que o pip install é quem roda o pyproject.toml). Mas deu certo e consegui rodar em outro diretório.
+Por fim, vi que não precisava trocar o nome do ambiente virtual no .gitignore.
+
+Em seguida parti para o desenvolvimento, onde acredito que fui bem melhor do que das vezes anteriores (fiz no arquivo src/projeto_estacionamento/main.py). Nem tentei fazer o mensalista, e tive problemas em pensar como gerar o relatório. Talvez com mais tempo em mãos eu conseguiria pensar em algo. Mas acredito que fui bem melhor quando ao desenvolvimento das diferentes Classes e seus métodos e atributos. Peguei esse função field com o Gemini e tirei uma dúvida de um erro com o Claude.
+
+Feito isso, fui para a parte de testes, onde consegui escrever umas linhas mas não consegui rodar o arquivo. Quando clicava na seta so canto superior direito para rodar o arquivo test_estacionamento.py que criei, ele rodava o main.py, algo que não entendi. Então não consegui ver muito bem se está certo. Além disso, o tempo acabou quando tinha acabado de escrever o código do parametrizer, que acredito que esteja errado.
+
+Por fim, rodei o ruff (pedi ao gemini o comando pois não sabia como usá-lo), e não li o que ele devolveu, apenas colei no arquivo src/projeto_estacionamento/ruff_result.md.
+
+Onde travei:
+Diria que dei uma travada na hora de escrever e rodar os pytests. 
+E diria que travei na hora de pensar em como fazer para gerar o relatório, contar o faturamento total e por catergoria. E também um pouco no que colocar como valor no dict de estacionamento.
+
+
+O que eu ainda nao entendo:
+pip intall -e. Sei que ele é o Build-Frontend, mas tipo não entendi o que a flag -e faz de diferente.
+Não estou mandando tão bem ainda na aplicação e desenvolvimentos de testes com pytest.
+Não entendi o Protocol ainda.
+E não li o que o ruff devolveu, então não sei como usá-lo para melhorar meu código.
+
+Sensacao vs. resultado
+Acredito que não soube respeitar o tempo, o que me desgastou e me prejudicou no resto. Sempre faço isso com teoria nova: quero entender todos os minimos detalhes sem aplicar e construir toda a história e o funcionamento passo a passo das coisas, que acabo me desgastando muito com isso e acabo me ferrando.
