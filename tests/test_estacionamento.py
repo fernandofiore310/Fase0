@@ -22,7 +22,7 @@ def carro():
 
 def test_calcular_tarifa_correta_caminhao(caminhao):
     tarifa = caminhao.registra_saida_e_calcula_tarifa(2.5)
-    assert tarifa == 55
+    assert tarifa == 70
 
 
 def test_calcular_tarifa_errada_caminhao(caminhao):

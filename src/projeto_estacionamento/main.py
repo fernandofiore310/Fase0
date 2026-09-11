@@ -9,7 +9,7 @@ class Sistema:
 
     def registra_entrada(self, veiculo):
         veiculo.registra_entrada()
-        self.estacionamento[veiculo.placa] = veiculo.__class__.__name__
+        self.estacionamento[veiculo.placa] = veiculo
 
     def registra_saida(self, veiculo, tempo):
         if veiculo.placa in self.estacionamento:
@@ -39,22 +39,16 @@ class Sistema:
         print(
             f"Faturamento total do dia: {sum(dados['Faturamento'] for dados in self.relatorio.values())}"
         )
+        for veiculo, dic in self.relatorio.items():
+            print(f"Faturamento de {veiculo}: {dic['Faturamento']}")
+
         print(
-            f"Faturamento de Carros: {self.relatorio['Carro']['Faturamento'] if 'Carro' in self.relatorio else 0.0}"
-        )
-        print(
-            f"Faturamento de Motos: {self.relatorio['Moto']['Faturamento'] if 'Moto' in self.relatorio else 0.0}"
-        )
-        print(
-            f"Faturamento de Caminhões: {self.relatorio['Caminhao']['Faturamento'] if 'Caminhao' in self.relatorio else 0.0}"
-        )
-        print(
-            f"Permanência Média: {sum(dados['Tempo Total'] for dados in self.relatorio.values()) / sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) if sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) != 0 else 0.0}"
+            f"Permanência Média: {sum(dados['Tempo Total'] for dados in self.relatorio.values()) / sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) if sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) != 0 else 0.0:.2f}"
         )
         print("----------------------------------------------")
 
     def verifica(self, veiculo):
-        if any(placa == veiculo.placa for placa in self.estacionamento):
+        if veiculo.placa in self.estacionamento:
             print(f"Veículo de placa {veiculo.placa} está estacionado")
         else:
             print(f"Veículo de placa {veiculo.placa} não está estacionado")
@@ -112,7 +106,6 @@ class Caminhao(Veiculo):
         # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
         # tempo = tempo/3600
         tarifa = 25
-        tempo -= 1
         while tempo > 0:
             tarifa += 15
             tempo -= 1
@@ -159,12 +152,12 @@ if __name__ == "__main__":
     estacionamento_centro.registra_entrada(moto1)
     # print(repr(estacionamento_centro))
     # print(estacionamento_centro.estacionamento)
-    # estacionamento_centro.verifica(carro1)
+    estacionamento_centro.verifica(carro1)
     # estacionamento_centro.verifica(moto1)
     estacionamento_centro.registra_saida(carro1, 2.0)
     # estacionamento_centro.gera_relatorio()
     estacionamento_centro.registra_saida(caminhao1, 2.5)
-    estacionamento_centro.registra_saida(caminhao2, 1.5)
+    # estacionamento_centro.registra_saida(caminhao2, 1.5)
     estacionamento_centro.registra_saida(moto1, 4.0)
     estacionamento_centro.gera_relatorio()
 
