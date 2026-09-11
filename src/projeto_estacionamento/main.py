@@ -112,6 +112,18 @@ class Caminhao(Veiculo):
         return tarifa
 
 
+class Onibus(Veiculo):
+    def registra_saida_e_calcula_tarifa(self, tempo):
+        # self.horario_saida = datetime.now()
+        # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
+        # tempo = tempo/3600
+        tarifa = 30
+        while tempo > 0:
+            tarifa += 20
+            tempo -= 1
+        return tarifa
+
+
 @dataclass
 class Mensalista(Carro):
     franquia_restante: float = 200.0
@@ -143,6 +155,7 @@ if __name__ == "__main__":
     caminhao1 = Caminhao("JJE4545")
     caminhao2 = Caminhao("ABB7265")
     moto1 = Moto("FOF3100")
+    onibus1 = Onibus("LFF5439")
 
     estacionamento_centro = Sistema()
     # print(repr(estacionamento_centro))
@@ -150,6 +163,7 @@ if __name__ == "__main__":
     estacionamento_centro.registra_entrada(caminhao1)
     estacionamento_centro.registra_entrada(caminhao2)
     estacionamento_centro.registra_entrada(moto1)
+    estacionamento_centro.registra_entrada(onibus1)
     # print(repr(estacionamento_centro))
     # print(estacionamento_centro.estacionamento)
     estacionamento_centro.verifica(carro1)
@@ -159,6 +173,7 @@ if __name__ == "__main__":
     estacionamento_centro.registra_saida(caminhao1, 2.5)
     # estacionamento_centro.registra_saida(caminhao2, 1.5)
     estacionamento_centro.registra_saida(moto1, 4.0)
+    estacionamento_centro.registra_saida(onibus1, 2.5)
     estacionamento_centro.gera_relatorio()
 
     # print(repr(moto1))
