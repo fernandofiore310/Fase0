@@ -243,7 +243,7 @@ Acredito que fiu bem hoje. Infelizmente, estourei o tempo no Bloco 3, mas não a
 O que fiz:
 No Bloco 1, arrumei tudo bem rápido. Começando pelo bug do caminhão que já havia indentificado ontem, então foi algo bem tranquilo de arrumar. Arrumei tanto no main quanto nos testes. Em seguida, arrumei o problema de referenciar as chaves com o nome fixo. Fiz isso criando um loop onde há prints que tratam de todas as chaves presentes no relatório, sem precisar especificar o nome de cada uma dessas chaves. Isso me ajudou a passar pelo teste do onibus mais para frente. Por fim, arrumei o valor do dic de estacionamento, colocando o objeto inteiro e também troquei o any() que estava usando antes. Alem disso, coloquei um limite de 2 casas decimais no print do tempo de permanência média.
 O Bloco 2 foi onde fiquei mais tempo, mas não porque achei difícil, e mais porque praticamente reformulei o arquivo de testes inteiros, além de não testar apenas o cálculo de tarifas agora.
-O Bloco 3 foi tranquilo também, pois apenas criei a classe nova do ônibus, e realizei o teste. Este consistia em ver se a mudanca não era na classe Sistema (seria uma mudança nessa classe, caso eu ainda estivesse usando a lógica de if/else, visto que teria que adicionar um bloco condicional para tratar os ônibus) e também se o Ônibus aparecia no relatório normalmente com o cálculo certo. Tudo isso passou de primeira.
+O Bloco 3 foi tranquilo também, pois apenas criei a classe nova do ônibus, e realizei o teste. Este consistia em ver se a mudanca não era na classe Sistema (seria uma mudança nessa classe, caso eu ainda estivesse usando a lógica de if/else, visto que teria que adicionar um bloco condicional para tratar os ônibus) e também se o Ônibus aparecia no relatório normalmente com o cálculo certo. Tudo isso passou de primeira. Isso conclui o meu critério 3 de avaliação da Fase 0.
 
 Onde travei:
 Diria que não travei em nada hoje.
@@ -251,5 +251,12 @@ Diria que não travei em nada hoje.
 O que eu ainda nao entendo:
 O que não entendo ainda são coisas de dias passados. Não teve nada novo entrando nessa categoria de coisas que eu ainda não entendo hoje.
 
-Sensacao vs. resultado
+Sensacao vs. resultado:
 Acredito que fiu bem hoje.
+
+Pendências:
+
+- Escrever e terminar o mensalista
+- Separar o cálculo e apresentação. Não deixar tudo no gera_relatorio()
+- Tirar datetime e tempo_estacionado
+- Arrumar questão da linha 46 do main.py fazer o mesmo cálculo 3 vezes
