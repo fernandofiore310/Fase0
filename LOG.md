@@ -3,48 +3,38 @@
 ## Fase 0
 
 ### 2026-08-31 — Antes de começar
+
 Realizei todo o setup em 1h:30min cravado.
 Gastei bastante tempo entendendo sobre git, visto que estava enferrujado e quis criar o meu repositório via terminal. Foi uma tarefa difícil. Fiquei com dúvidas que vou usar o Gemini para me ajudar.
 Também tive dúvida sobre as intalações do vs code, python e do git, no sentido de que não sabia em que local estavam sendo instaladas essas aplicações.
 
 ### 2026-09-03 — Diagnóstico a frio (4h)
-Bloco A: 
 
+Bloco A:
 
 No Bloco A, nao consegui completar nenhum exercicio. Teve uns que fui melhor que outros, mas em geral nao fui bem. Vou resumir como foi minha performance em cada um.
 
-
 A1: Nesse tive dificuldade. No comeco, fiquei batendo cabeca, pois nao lembrava como escrever as funcoes lower e upper. Alem disso, tinha esquecido totalmente de funcoes como .split e outras (lembrei no A6). Logo, fiquei quebrando a cabeca para pensar em um bom raciocinio e acabei perdendo muito tempo nisso. Logo, depois de um tempo entre 15-20 minutos, decidi ir para o proximo exercicio.
-
 
 A2: Nesse exercicio acredito que fui um pouco melhor que o anterior. No comeco, esqueci como usava os metodos .keys, .values e .items. Testei e vi como os escrevia da maneira correta. Calculei as medias das listas (tive um problema que esqueci a funcao que pega o tamanho da lista de uma vez, entao tive que usar um contador para isso, not very optimal) e consegui criar as tuplas com nomes e medias e coloca-las numa lista de tuplas. Na parte de pegar o top tres, a minha ideia era fazer um loop que percorria o bloco de codigo 3 vezes, no entanto, pensei em um raciocinio qualquer e estava meio apertado com o tempo, entao acabei esquecendo algumas coisas como atualizar o contador, entre outros.
 Alem de tudo isso, esqueci como arredonda para 2 casas decimais e nao sabia como organiza-los por ordem alfabetica.
 Outro exercicio que tive que prosseguir para o outro por conta de tempo.
 
-
 A3: Esse aqui acredito que fui um pouco melhor. Consegui criar uma lista com todas as diferentes categorias nos diferentes dicionarios. E acredito que consegui criar a tupla que precisava colocar como valor do dicionario de categorias. No entanto, por estar apertado de tempo tambem, acabei nao criando o dicionario, para tentar otimizar meu tempo.
-
 
 A4: Nesse exercicio, acredito que consegui percorrer o texto. Nao sei se o jeito que evitei pontuacoes foi o jeito mais eficiente de se fazer. Alem disso, nao consegui pensar em um metodo para pegar as n palavras mais frequentes de um modo que nao fosse comer todo o meu tempo de diagnostico. Novamente, nao sabia como organizar as palavras ordem alfabetica.
 
-
 A5: Esse aqui tive o mesmo problema de ter esquecido a funcao para pegar o tamanho das listas. Acabei perdendo um tempo tentando. Quando fui pensar em como fazer a janela movel, nao consegui pensar em como fazer rapido, e por isso, decidi pular para o outro exercicio por uma questao de tempo.
-
 
 A6: Nesse exericio, nao criei a lista com 25 linhas simulando o log, por questao de tempo. Nesse exercicio foi quando lembrei da existencia do metodo split (pensando agora, poderia ter usado o split passando ','como argumento, mas na hora nao passou pela minha cabeca). Acredito que consegui contar o numero de erros, porem na hora, nao consegui pensar em como conta-los por hora do dia e como criar o retornavel. Tambem nao queria perder muito tempo.
 
-
 A7: Aqui, acredito que consegui criar a sequencia corretamente, nao sei se usei o codigo mais eficiente para fazer isso, mas consegui. Depois, apenas somei todos os elementos da lista e retornei.
-
 
 A8: Esse aqui, estava com o tempo muito apertado (faltavam cerca de 3min e 30seg) e nao sabia como fazer esse exercicio. Logo, apenas abracei a derrota, passei rapidamente pelos outros exercicios e acabei.
 
-
 Consultas que precisei fazer: Nesse Bloco, assim como as suas intrucoes falavam, nao consultei nada. Fiz tudo de cabeca.
 
-
 Bloco B:
-
 
 No Bloco B, comecei lendo a domcumentacao oficial do Python sobre classes para ir retomando os meus conhecimento no assunto, uma vez que nessa secao voce mencionou que eu poderia realizar consultas as documentacoes oficiais.
 Entao aqui comecei criando a classe Cliente, que basicamente tinha os atributos que diferenciavam cada tipo de veiculo do outro.
@@ -55,22 +45,19 @@ Acredito que consegui calcular o quanto cada um deve (so nao tenho muita certeza
 Em relacao a lista de veiculos estacionados, fiz ela, no entanto nao tenho certeza se fiz da melhor maneira e se esta correta.
 No fim, vi que tinha que fazer o relatorio, que decidi fazer em formato de dicionario, onde acredito que consegui devolver corretamente os dois tipos de faturamento, porem, nao consegui calcular a permanencia media. Nao sei como poderia fazer isso e nao sei se o time possa ter me atrapalhado nessa tarefa.
 Tinha criado a funcoa gera relatorio, no entanto, acabei nao usando ela, e apenas a usei para fazer um teste do Bloco C.
-Nao coloquei type hints (pesquisei na hora o que era para entender, e acabei nao colocando). Tambem, nao sei o que eh o __repr__ que voce mencionou. E tambem, nao sabia usar o pytest, alem de estar com o tempo corrido para fazer os testes. Logo, nao testei nada do meu codigo.
-
+Nao coloquei type hints (pesquisei na hora o que era para entender, e acabei nao colocando). Tambem, nao sei o que eh o **repr** que voce mencionou. E tambem, nao sabia usar o pytest, alem de estar com o tempo corrido para fazer os testes. Logo, nao testei nada do meu codigo.
 
 Aqui, verifiquei a documentacao do python para classes principalmente.
 https://docs.python.org/3/tutorial/classes.html
 https://docs.python.org/pt-br/3.9/library/datetime.html#time-objects
 
-
 Bloco C:
-
 
 Aqui realmente acredito que nao mandei bem, mas vou explicar direito o que aconteceu.
 Dos 45 minutos que esse bloco tinha, fiquei 30 minutos na parte do ambiente virtual. Basicamente, fiquei lendo a pagina do python sobre ambientes virtuais (https://docs.python.org/pt-br/3/tutorial/venv.html)
-Primeiramente, tentei criar um ambiente virtual, mas nao sabia muito bem o que estava fazendo. Acredito que usei o seguinte comando: python -m venv \Users\ferna\dev\reativacao\Fase0 o que acabou criando um ambiente virtual chamado Fase0, que o seu gitignore tinha um *, que basicamente estava fazendo meu repositorio ignorar a pasta /diagnostico. Ai, ate eu entender que o erro era esse demorou um certo tempo e acabou me prejudicando bastante. Alem disso, depois ainda criei um outro ambiente virtual, chamado venv, enquanto esse Fase0 continuava funcionando, o que me deixou mais confuso ainda, com duas pastas Scripts, dois gitignores, etc. Li mais sobre a documentacao no site do git, e entendi que quando tinham dois gitignores o git considerava o de highest precedure. Entao o que fiz foi apagar tudo do ambiente Fase0.
+Primeiramente, tentei criar um ambiente virtual, mas nao sabia muito bem o que estava fazendo. Acredito que usei o seguinte comando: python -m venv \Users\ferna\dev\reativacao\Fase0 o que acabou criando um ambiente virtual chamado Fase0, que o seu gitignore tinha um _, que basicamente estava fazendo meu repositorio ignorar a pasta /diagnostico. Ai, ate eu entender que o erro era esse demorou um certo tempo e acabou me prejudicando bastante. Alem disso, depois ainda criei um outro ambiente virtual, chamado venv, enquanto esse Fase0 continuava funcionando, o que me deixou mais confuso ainda, com duas pastas Scripts, dois gitignores, etc. Li mais sobre a documentacao no site do git, e entendi que quando tinham dois gitignores o git considerava o de highest precedure. Entao o que fiz foi apagar tudo do ambiente Fase0.
 Alem de tudo isso, nao ativei nenhum dos ambientes com comando. Eles basicamente ativavam sozinhos quando eu abria uma nova janela do terminal interno do vs code. Eu lembrava de usar um comando especifico para ativa-lo nos projetos da faculdade (mas usava Linux, o que poderia ser diferente).
-No fim das contas, nao precisei escrever nada no gitignore do ambiente venv. Ele ja veio escrito (veio apenas com o *) e ja evitou que tudo dele subisse para o meu repositorio.
+No fim das contas, nao precisei escrever nada no gitignore do ambiente venv. Ele ja veio escrito (veio apenas com o _) e ja evitou que tudo dele subisse para o meu repositorio.
 Nos 15 minutos restantes, consegui realizar o commit do Bloco B corretamente. Alem disso, consegui criar a nova branch, realizar as mudancas, fazer o pull request, fazer o merge, provocar o conflito e enfim arrumar o conflito.
 Nao vizualizai o historico com o grafo de branches, pois nao sei usar e tinha pouquissimo tempo. Tambem nao desfiz o ultimo commit preservando o historico e nem expliquei as diferencas (passos 6 e 7) pois tambem fiquei sem tempo.
 
@@ -79,8 +66,6 @@ https://docs.python.org/pt-br/3/tutorial/venv.html
 https://git-scm.com/docs/gitignore
 https://docs.python.org/3/library/venv.html
 https://github.com/git-guides#create-a-branch
-
-
 
 Sensacao x Resultado
 
@@ -98,45 +83,35 @@ O que fiz:
 Antes de atacar os exercicios, mandei a documentacao de ambiente virutal do python, git guides e documentacao do gitignore para o Gemini e pedi um resumo. Li e fui para os exercicios
 
 No exercicio A1, fiz uma tatica que usei em todos os exercicios: usei muitos prints, de modo que pudesse ver o que cada coisa estava retornando. Primeira coisa que fiz foi percorrer a lista de entrada e deixar todos os nomes em minusculas.
-Em seguida veio a parte que  acabei ficando mais tempo, que foi raciocinando como ia tratar os diferentes tipos de nomes que poderiam vir na lista. Tendo mapeado os tipos, tratei, com um b loco if/else primeiro os nomes que vinham com virgula e os que nao vinham. Comecei dando um split para separar nome e sobrenome e depois juntei eles usando a funcao format (eu lembrava que strings podiam ser somadas). Em ambos os blocos, usei algumas funcoes que perguntei para o Gemini e adicionei ao meu repertorio, dentre elas, o replace, que me ajudou a remover a virgula, e ate mesmo o join. Tambem, criei uma lista de preposicoes, para nao colocar maiusculas nelas. Tudo isso, sempre testando com varios prints e entendendo os estados.
-
+Em seguida veio a parte que acabei ficando mais tempo, que foi raciocinando como ia tratar os diferentes tipos de nomes que poderiam vir na lista. Tendo mapeado os tipos, tratei, com um b loco if/else primeiro os nomes que vinham com virgula e os que nao vinham. Comecei dando um split para separar nome e sobrenome e depois juntei eles usando a funcao format (eu lembrava que strings podiam ser somadas). Em ambos os blocos, usei algumas funcoes que perguntei para o Gemini e adicionei ao meu repertorio, dentre elas, o replace, que me ajudou a remover a virgula, e ate mesmo o join. Tambem, criei uma lista de preposicoes, para nao colocar maiusculas nelas. Tudo isso, sempre testando com varios prints e entendendo os estados.
 
 No exercicio A4, lembrei de como adicionava valor e chaves a um dicionario vazio e tratei o testo de forma melhor. Usei o gemini para tirar a duvida da ordem alfabetica, e ele me apresentou o sorted, que me ajudou tanto nesse exercicio quanto em outros. Tambem, ele me apresentou o del, que tinha esquecido como usava, para tirar palavras que ja tinha adicionado a lista final da lista intermediaria.
 
-
 No A2, tambem usei o gemini para me lembrar da funcao round, que arredondava para 2 casas decimais. Lembrei de usar o len tambem, que nesse exercicio foi bem importante. Tambem tratei o caso dos alunos que nao tinham notas registradas. E o gemini tambem me lembrou da funcao remove, que usei para tirar os alunos sem nota.
-
 
 No A6, ja estava com o tempo mais curto, faltava cerca de 15 minutos para acabar. Usei o Chatgpt para gerar as 25 linhas de log. E de resto, fiz tudo por conta, sem problemas.
 
-
 O A7 fiquei sem tempo para fazer infelizmente. Fa;tavam poucos minutos, cerca de 2, e nao sabia o que era yield. Teria que ler documentacao e passar um tempo pensando no raciocinio logico por tras.
-
 
 Vale ressaltar, que em todos os exercicios, eu que criei a estrutura e o desenvolvimento do algoritmo. Nao usei nenhuma ajuda para pensar em COMO fazer o exercicio. O raciocinio logico por tras foi todo meu. O ponto era, por exemplo, quando queria tirar algo de uma lista, e nao lembrava de uma funcao. Nesse caso, consultava o gemini para me explicar que funcao eu poderia usar.
 
-
 No Bloco 2, ativei o venv usando o resumo que o Gemini me passou da documentacao oficial do python. Aprendi a desativar (deactivate) e ativar de novo. Foi bem util.
 Em seguida, rodei os dois casos que voce mencionou usando o where python. No entanto, em ambos os casos, o terminal nao mostrou nada, apenas aparecia que o comando tinha sido rodado, mas o terminal nao "printava" nada.
-Depois, criei o arquivo .gitignore na raiz do repositorio, e com o resumo do gemini, montei meu proprio arquivo, e ainda coloquei comentarios didaticos para me ajudar. Comecei a ter nocao da funcionalidade de *, /, **, entre outros. 
-Usei o comando git checkout para voltar para  a versao antiga do A7, que tinha apagado no Bloco 1. Entendi que eh como se fosse uma volta no tempo, visto que eu nao tinha commitado o exercicio A7 apagado ainda.
+Depois, criei o arquivo .gitignore na raiz do repositorio, e com o resumo do gemini, montei meu proprio arquivo, e ainda coloquei comentarios didaticos para me ajudar. Comecei a ter nocao da funcionalidade de \*, /, \*\*, entre outros.
+Usei o comando git checkout para voltar para a versao antiga do A7, que tinha apagado no Bloco 1. Entendi que eh como se fosse uma volta no tempo, visto que eu nao tinha commitado o exercicio A7 apagado ainda.
 Criei a pasta BlocoC e coloquei dois arquivos, um deles com o que fiz na vizualizacao dos grafos e a minha interpretacao.
 Em seguida, usei o comando git revert para reverter o commit teste que fiz. Peguei no Git Guides isso. Documentei tudo tambem na pasta BlocoC.
 Removi a linha de teste do B1.py, e commitei separado tudo, no entanto, acredito que as mensagens nao seguiram o seu padrao.
 
-
 Onde travei:
 Acredito que usei bastante tempo nos exs do Bloco1. Como disse anteriormente, nas 1h30min de trabalho, fiz 4 exs, sendo que o A6 faltavam 15 minutos. Muito disso por conta de um raciocinio que ia se desenvolvendo aos poucos, e varios testes e tentativas e algumas mudancas na logica em alguns exercicios. No Bloco 2 acredito que nao travei, so levei mais tempo, pois estava lendo documentacao e preparando um .gitignore mais didatico.
-
 
 O que ainda nao entendo:
 Como vimos, toda questao de yield do A7, pois nunca vi isso em aulas. Alem do A8, que por masi que nao tenha aberto ele hoje, lembro que nao tinha muita ideia de como faze-lo.
 As minhas duvidas sobre o segundo bloco estao nos documentos .md da pasta BlocoC. La vc vai ver as minhas duvidas.
 
-
 Sensacao vs Resultado
 Acredito que fui bem nos exericios que fiz. Bem melhor que ontem, mesmo com um exercicio incompleto por falta de tempo. Me senti melhor hoje programando com a consulta.
-
 
 Consultas:
 Gemini
@@ -146,7 +121,6 @@ https://docs.python.org/pt-br/3/tutorial/venv.html
 https://git-scm.com/docs/gitignore
 
 https://github.com/git-guides
-
 
 ### 2026-09-06 — POO e correção de bugs (2h)
 
@@ -158,20 +132,15 @@ No A2, arrumei todos os problemas. Acredito que o meu problema era o fato de eu 
 No A4, foi mais tranquilo, tanto que foi o que resolvi mais rapido (todos os tempos estao na mensagem de commit individual de cada exercicio). Arrumei a questao do return e das stopwords muito rapido, visto que eram erros de atencao, e o da pontuacao, apenas criei uma lista, percorri as palavras e usei um replace.
 Infelizmente nao deu tempo de fazer o A6, logo, nem toquei no exercicio.
 
-
 No Bloco 2, comecei usando o terminal python e o Gemini para entender certinho a funcionalidade do yield e funcoes geradoras.
 Tendo lido e testado, comecei a programar. A principio, estava usando a lista de novo. Com um aviso do Gemini, percebi que nao era essa rota. Pensei em um raciocinio e apliquei no meu codigo. Fiz o codigo em cerca de 19 minutos.
 
-
 Depois, no Bloco 3, pedi a aula para o Gemini e sanei umas duvidas que tinha. Particularmente nao conhecia o dataclass, o repr, o str e o eq, entao foi bom para pegar uma visao daora.
 
-
-O negocio foi no Bloco 4. Mesmo com o tempo que tinha para desenvolver o codigo e a aula do Gemini, mesmo assim nao fiz o exercicio completo, por sinal, acredito que ele esteja bem cru ainda. 
-
+O negocio foi no Bloco 4. Mesmo com o tempo que tinha para desenvolver o codigo e a aula do Gemini, mesmo assim nao fiz o exercicio completo, por sinal, acredito que ele esteja bem cru ainda.
 
 Onde travei:
 A unica coisa que posso dizer que "travei" (nao fui muito bem uma travada) foi no Bloco 4. Por mais que eu tenha tido a aula, a estrtura que o codigo deveria ter apenas nao estava surgindo na minha cabeca. Tanto que, a adicao da classe veiculo e cliente, e o atributo de placa que criei para diferenciar os veiculos, foi algo que o Gemini acabou provocando e me fez pensar. Nao foi uma ideia que eu pensei no momento que o timer comecou a rodar.
-
 
 O que eu ainda nao entendo:
 Ainda nao saquei como pode ser tao mais vantajoso o uso de funcoes geradoras. Sei la, na minha cabeca era mais util ter uma funcao que retornasse direto o que era pedido, ao inves de algo que eu preciso ficar chamando mais de uma vez.
@@ -179,10 +148,8 @@ Ainda nao saquei como pode ser tao mais vantajoso o uso de funcoes geradoras. Se
 Ja no Bloco 4, o meu problema eh mais entender a estrutura e onde tem que ir certas coisas. Por exemplo, quando acabou o exercicio, fui tirar umas duvidas com o gemini, e ele disse, por exemploi, que o horario de entrada e saida deveriam ser atualizados por um metodo dentro de veiculos, e nao de Sistema (que era o que eu pensava que era o correto). Logo, acredito que falta uma certa experiencia, ou talvez um entendimento de estrutura e de "o que fica em que lugar" e coisas do tipo. Na minha cabeca era bem mais simples desenvolver um estacionamento. Nao sei como nao usar os bloco de if/else para diferenciar os veiculos, mesmo voce falando que nao era o correto. E usei um dicionario para simular o estacionamento, mas novamente, foi algo que o Gemini me provocou. Eu ia usar uma lista, que realmente nao faz muito sentido usar.
 Em conclusao, acredito que meu problema nao esta muito em entendimento de instancias, classes, atributos etc. Esta mais na parte de montar o diagrama do Sistema completo e saber/ter mais clareza sobre o que cada classe deve ter e fazer.
 
-
 Sensacao vs. resultado
 Acredito que mandei mal no Bloco 4. De resto acho que fui bem.
-
 
 ### 2026-09-07 — Revisão (1h)
 
@@ -198,10 +165,8 @@ Teve alguns momentos no desenvolvimento do A1, em que eu estava tentando racioci
 O que eu ainda nao entendo:
 Acho que estou tranquilo quanto a revisao de hoje.
 
-
 Sensacao vs. resultado
 Fui bem, mas esperava que concluísse o A1 em under 15, algo que não aconteceu.
-
 
 ### 2026-09-08 — Drills (2h)
 
@@ -216,10 +181,8 @@ Nao diria que travei, mas teve algumas coisas que tive que tirar um tempo para l
 O que eu ainda nao entendo:
 Nao vou falar que estou com todo o conteudo de hoje quentinho e decorado, mas acredito que nao hora que consigo identificar um problema que pode ser resolvido com essas ferramentas, e entao, vou ler a documentacao dessas funcoes para lembrar sobre a estrutura delas.
 
-
 Sensacao vs. resultado
 Acredito que fui bem, considerando o tempo abaixo do tempo total e que apenas estourei o tempo de 6min em um exercicio.
-
 
 ### 2026-09-09 — Fixação e conteúdo novo (3h)
 
@@ -230,8 +193,8 @@ Como gastei bastante tempo e energia nessa parte, passei um pouco rápido pelo p
 
 No Bloco 2, li bem rápido sobre ABC e Protocol. Tenho que admitir que não me esforcei muito para tentar entender o Protocol, e foquei só no ABC, que pelo que entendi, é uma ferramenta que permite classes filhas absorverem o conteúdo de uma classe pai, sem precisar repetir código. Criei o documento docs/classes.md e escrevi bem brevemente e até com uma certa falta de vontade o que fiz.
 
-No Bloco 3, comecei criando a pasta src/, e passei as instruções do Claude do Bloco 3 para o Gemini e falei para ele me ajudar a pensar em como resolver, porém sem dar respostas. 
-Então, a primeira coisa que fiz foi pesquisar na internet sobre o arquivo __init__.py e ver que podia não colocar nada dentro dele, e que ele era apenas um arquivo que tornava o meu projeto "importável". Em seguida, desenvolvi sozinho o project.toml, tirando algumas dúvidas com o Gemini, como qual versão do Python colocar, se eu podia escolher a version, e quais versões colocar de ruff e pytest.
+No Bloco 3, comecei criando a pasta src/, e passei as instruções do Claude do Bloco 3 para o Gemini e falei para ele me ajudar a pensar em como resolver, porém sem dar respostas.
+Então, a primeira coisa que fiz foi pesquisar na internet sobre o arquivo **init**.py e ver que podia não colocar nada dentro dele, e que ele era apenas um arquivo que tornava o meu projeto "importável". Em seguida, desenvolvi sozinho o project.toml, tirando algumas dúvidas com o Gemini, como qual versão do Python colocar, se eu podia escolher a version, e quais versões colocar de ruff e pytest.
 Depois, rodei o pip install -e, que confesso que ainda não entendi o porque de usa-lo (a flag -e no caso, sei que o pip install é quem roda o pyproject.toml). Mas deu certo e consegui rodar em outro diretório.
 Por fim, vi que não precisava trocar o nome do ambiente virtual no .gitignore.
 
@@ -242,9 +205,8 @@ Feito isso, fui para a parte de testes, onde consegui escrever umas linhas mas n
 Por fim, rodei o ruff (pedi ao gemini o comando pois não sabia como usá-lo), e não li o que ele devolveu, apenas colei no arquivo src/projeto_estacionamento/ruff_result.md.
 
 Onde travei:
-Diria que dei uma travada na hora de escrever e rodar os pytests. 
+Diria que dei uma travada na hora de escrever e rodar os pytests.
 E diria que travei na hora de pensar em como fazer para gerar o relatório, contar o faturamento total e por catergoria. E também um pouco no que colocar como valor no dict de estacionamento.
-
 
 O que eu ainda nao entendo:
 pip intall -e. Sei que ele é o Build-Frontend, mas tipo não entendi o que a flag -e faz de diferente.
@@ -254,7 +216,6 @@ E não li o que o ruff devolveu, então não sei como usá-lo para melhorar meu 
 
 Sensacao vs. resultado
 Acredito que não soube respeitar o tempo, o que me desgastou e me prejudicou no resto. Sempre faço isso com teoria nova: quero entender todos os minimos detalhes sem aplicar e construir toda a história e o funcionamento passo a passo das coisas, que acabo me desgastando muito com isso e acabo me ferrando.
-
 
 ### 2026-09-10 — Bloco Nobre (4h)
 
@@ -270,10 +231,25 @@ Onde travei:
 Diria que dei uma leve travada no raciocinio e implementacao do relatorio. Depois da dica do Claude de dicionario integrado, as coisas comecaram a andar mais.
 No pouco tempo que fiquei fazendo o mensalista, fiquei meio travado em como contabilizar e acompanhar as 200 horas de franquia do mensalista.
 
-
 O que eu ainda nao entendo:
 Não li o erro do datetime que o ruff trouxe. Mas, por outro lado, nao estou mais usando ele.
 Não entendi e nem li o Protocol ainda.
 
 Sensacao vs. resultado
 Acredito que fiu bem hoje. Infelizmente, estourei o tempo no Bloco 3, mas não acho que cometi erros muito graves no meu codigo.
+
+### 2026-09-11 — Sexta (2h)
+
+O que fiz:
+No Bloco 1, arrumei tudo bem rápido. Começando pelo bug do caminhão que já havia indentificado ontem, então foi algo bem tranquilo de arrumar. Arrumei tanto no main quanto nos testes. Em seguida, arrumei o problema de referenciar as chaves com o nome fixo. Fiz isso criando um loop onde há prints que tratam de todas as chaves presentes no relatório, sem precisar especificar o nome de cada uma dessas chaves. Isso me ajudou a passar pelo teste do onibus mais para frente. Por fim, arrumei o valor do dic de estacionamento, colocando o objeto inteiro e também troquei o any() que estava usando antes. Alem disso, coloquei um limite de 2 casas decimais no print do tempo de permanência média.
+O Bloco 2 foi onde fiquei mais tempo, mas não porque achei difícil, e mais porque praticamente reformulei o arquivo de testes inteiros, além de não testar apenas o cálculo de tarifas agora.
+O Bloco 3 foi tranquilo também, pois apenas criei a classe nova do ônibus, e realizei o teste. Este consistia em ver se a mudanca não era na classe Sistema (seria uma mudança nessa classe, caso eu ainda estivesse usando a lógica de if/else, visto que teria que adicionar um bloco condicional para tratar os ônibus) e também se o Ônibus aparecia no relatório normalmente com o cálculo certo. Tudo isso passou de primeira.
+
+Onde travei:
+Diria que não travei em nada hoje.
+
+O que eu ainda nao entendo:
+O que não entendo ainda são coisas de dias passados. Não teve nada novo entrando nessa categoria de coisas que eu ainda não entendo hoje.
+
+Sensacao vs. resultado
+Acredito que fiu bem hoje.
