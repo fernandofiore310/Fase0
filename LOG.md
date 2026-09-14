@@ -260,3 +260,23 @@ Pendências:
 - Separar o cálculo e apresentação. Não deixar tudo no gera_relatorio()
 - Tirar datetime e tempo_estacionado
 - Arrumar questão da linha 46 do main.py fazer o mesmo cálculo 3 vezes
+
+### 2026-09-13 — Domingo (3h)
+
+O que fiz:
+No Bloco 1, realmente fiz muito rapido e solucionei o problema. Em relacao aos testes do parametrize, pelo que enteendi, tive que colocar a classe ao inves da instancia, pois a funcao de teste, caso use a instancia, trata como o mesmo objeto (que no caso era, visto que colocava a mesma placa para eles). Logo, quando eu fosse testar o Mensalista, ele carregaria a franquia_restante atualizada para todos os testes de Mensalista que eu fizesse, que nao era algo que eu queria.
+O Bloco 2 fiz em cerca de 11 minutos. Foi rapido. Fiquei um tempo refletindo se valia a pena criar o atributo de franquia no Veiculo (nessa caso zeraria o atributo para as outras classes) ou se deixaria apenas no Mensalista. No fim, esolhi deixar no mensalista (justificativa no docs/classes.md).
+O Bloco 3, foi ok. No fim consegui. Acredito que eu nao tenha feito do jeito mais eficaz. Comecei implementando e no meu primeiro teste (prints e chamadas de metodos do Sistema no **main**) vi que estava dando erro quando o tempo estacionado passava de 200 horas. Ai fiz uma conta para tratar isso, no entanto, nao estava tratando quando ele estacionava mais uma vez depois de ja ter estourado a franquia, entao decidi zerar a franquia pos loop. Entao, o ultimo bug veio quando o cara ficava estacionado exatamente 200 horas, onde o SIstema cobrava 12. Para isso, criei o if tempo == 0 para tratar justamente esse caso. Depois disso, tudo passou e os testes tambem.
+O Bloco 4 foi bem tranquilo. Acredito que resolvi os problemas de maneira decente. Nao tive muitos problemas.
+
+Onde travei:
+Diria que não travei em nada hoje. Mas de fato, fiquei um tempo quebrando a cabeca com os testes que fiz no mensalista, ate ele comecar a passar nos testes.
+
+O que eu ainda nao entendo:
+O que não entendo ainda é a questão da diferença entre perspectiva mensal e diária. O Sistema gera o relatório diário na teoria, mas como tenho que testar o mensalista com valores mensais, o valor de permanência média está extrapolando. Precisaria pensar em uma solução para isso. Mas acredito que no método que estamos fazendo (tempo inputado) não tenha uma solução muito viável.
+
+Sensacao vs. resultado:
+Acredito que fiu bem hoje.
+
+Pendências:
+Nenhuma acredito
