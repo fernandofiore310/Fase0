@@ -57,12 +57,9 @@ class Sistema:
 @dataclass
 class Veiculo(ABC):
     placa: str
-    # horario_entrada: datetime | None = None #field(default_factory=datetime.now) #uso o field para incia-lo com um valor padrao
-    # horario_saida: datetime | None = None #uso isso para inicia-lo como vazio
     tempo_estacionado: float = 0.0
 
     def registra_entrada(self):
-        # self.horario_entrada = datetime.now()
         print(f"Veículo de placa {self.placa} estacionado!")
 
     @abstractmethod
@@ -72,9 +69,6 @@ class Veiculo(ABC):
 
 class Carro(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
-        # self.horario_saida = datetime.now()
-        # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
-        # tempo = tempo/3600
         tarifa = (
             12  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
         )
@@ -87,9 +81,6 @@ class Carro(Veiculo):
 
 class Moto(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
-        # self.horario_saida = datetime.now()
-        # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
-        # tempo = tempo/3600
         tarifa = (
             6  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (6)
         )
@@ -102,9 +93,6 @@ class Moto(Veiculo):
 
 class Caminhao(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
-        # self.horario_saida = datetime.now()
-        # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
-        # tempo = tempo/3600
         tarifa = 25
         while tempo > 0:
             tarifa += 15
@@ -114,9 +102,6 @@ class Caminhao(Veiculo):
 
 class Onibus(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
-        # self.horario_saida = datetime.now()
-        # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
-        # tempo = tempo/3600
         tarifa = 30
         while tempo > 0:
             tarifa += 20
@@ -129,9 +114,6 @@ class Mensalista(Carro):
     franquia_restante: float = 200.0
 
     def verifica_franquia(self, tempo):
-        # self.horario_saida = datetime.now()
-        # tempo = (self.horario_saida - self.horario_entrada).total_seconds()
-        # tempo = tempo/3600
         self.franquia_restante -= tempo
         if self.franquia_restante <= 0:
             # aqui, discuti com o Gemini, e poderia usar o super() para chamar a funcao de calcular tarifa da classe pai (Carro())

@@ -43,15 +43,17 @@ def test_tira_falso(sistema, carro):
 @pytest.mark.parametrize(
     "veiculo,tempo,resultado_esperado",
     [
-        (Carro("DFS3355"), 0.5, 12),
-        (Carro("DFS3355"), 1.0, 12),
-        (Carro("DFS3355"), 2.0, 20),
-        (Moto("LFG6781"), 0.5, 6),
-        (Moto("LFG6781"), 3.5, 18),
-        (Caminhao("POP9034"), 0.5, 40),
-        (Caminhao("POP9034"), 2.5, 70),
-        (Onibus("GNB3421"), 2.5, 90),
+        (Carro, 0.5, 12),
+        (Carro, 1.0, 12),
+        (Carro, 2.0, 20),
+        (Moto, 0.5, 6),
+        (Moto, 3.5, 18),
+        (Caminhao, 0.5, 40),
+        (Caminhao, 2.5, 70),
+        (Onibus, 2.5, 90),
     ],
 )
 def test_registra(veiculo, tempo, resultado_esperado):
-    assert veiculo.registra_saida_e_calcula_tarifa(tempo) == resultado_esperado
+    assert (
+        veiculo("LFG6565").registra_saida_e_calcula_tarifa(tempo) == resultado_esperado
+    )
