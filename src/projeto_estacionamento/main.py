@@ -33,18 +33,30 @@ class Sistema:
             self.relatorio[nome]["Quantidade Veiculos"] += 1
             self.relatorio[nome]["Tempo Total"] += tempo
 
+    def calcula_relatorio(self):
+        faturamento_total = sum(
+            dados["Faturamento"] for dados in self.relatorio.values()
+        )
+        tempo_total = sum(dados["Tempo Total"] for dados in self.relatorio.values())
+        quantidade_veiculos = sum(
+            dados["Quantidade Veiculos"] for dados in self.relatorio.values()
+        )
+
+        if quantidade_veiculos != 0:
+            permanencia_media = tempo_total / quantidade_veiculos
+        else:
+            permanencia_media = 0.0
+        return faturamento_total, permanencia_media
+
     def gera_relatorio(self):
+        f, p = self.calcula_relatorio()
         print("----------------------------------------------")
         print("Relatório Diário do Estacionamento")
-        print(
-            f"Faturamento total do dia: {sum(dados['Faturamento'] for dados in self.relatorio.values())}"
-        )
+        print(f"Faturamento total do dia: {f}")
         for veiculo, dic in self.relatorio.items():
             print(f"Faturamento de {veiculo}: {dic['Faturamento']}")
 
-        print(
-            f"Permanência Média: {sum(dados['Tempo Total'] for dados in self.relatorio.values()) / sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) if sum(dados['Quantidade Veiculos'] for dados in self.relatorio.values()) != 0 else 0.0:.2f}"
-        )
+        print(f"Permanência Média: {p:.2f}")
         print("----------------------------------------------")
 
     def verifica(self, veiculo):
