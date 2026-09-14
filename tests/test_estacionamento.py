@@ -6,6 +6,7 @@ from projeto_estacionamento.main import (  # a pasta src nao deve ser referida c
     Moto,
     Onibus,
     Sistema,
+    Mensalista,
 )
 
 
@@ -51,6 +52,9 @@ def test_tira_falso(sistema, carro):
         (Caminhao, 0.5, 40),
         (Caminhao, 2.5, 70),
         (Onibus, 2.5, 90),
+        (Mensalista, 196.7, 0),
+        (Mensalista, 200.0, 0),
+        (Mensalista, 202, 20),
     ],
 )
 def test_registra(veiculo, tempo, resultado_esperado):

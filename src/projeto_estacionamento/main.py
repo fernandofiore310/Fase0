@@ -110,21 +110,35 @@ class Onibus(Veiculo):
 
 
 @dataclass
-class Mensalista(Carro):
+class Mensalista(Veiculo):
     franquia_restante: float = 200.0
 
-    def verifica_franquia(self, tempo):
-        self.franquia_restante -= tempo
-        if self.franquia_restante <= 0:
-            # aqui, discuti com o Gemini, e poderia usar o super() para chamar a funcao de calcular tarifa da classe pai (Carro())
-            pass
+    def registra_saida_e_calcula_tarifa(self, tempo):
+        print(f"Franquia: {self.franquia_restante}")
+        tarifa = 0
+        if self.franquia_restante - tempo > 0:
+            print(f"Franquia restante: {self.franquia_restante - tempo}")
+            self.franquia_restante -= tempo
+        else:
+            print(f"Franquia restante: {self.franquia_restante - tempo}")
+            tempo = -(self.franquia_restante - tempo)
+            if tempo == 0:
+                tarifa = 0
+            else:
+                tarifa = 12  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
+                tempo -= 1
+                while tempo > 0:
+                    tarifa += 8
+                    tempo -= 1
+                self.franquia_restante = 0
+        return tarifa
 
 
 if __name__ == "__main__":
     carro1 = Carro("AAC1234")
-    print(carro1.__class__)
-    print(carro1.__class__.__name__)
-    print(type(carro1.__class__.__name__))
+    # print(carro1.__class__)
+    # print(carro1.__class__.__name__)
+    # print(type(carro1.__class__.__name__))
     # Teste 1: Veja o tipo de cada elemento
     # print(type(Carro))   # O que retorna?
     # print(type(carro1))  # O que retorna?
@@ -138,6 +152,7 @@ if __name__ == "__main__":
     caminhao2 = Caminhao("ABB7265")
     moto1 = Moto("FOF3100")
     onibus1 = Onibus("LFF5439")
+    mensalista1 = Mensalista("LFF5434")
 
     estacionamento_centro = Sistema()
     # print(repr(estacionamento_centro))
@@ -148,12 +163,22 @@ if __name__ == "__main__":
     estacionamento_centro.registra_entrada(onibus1)
     # print(repr(estacionamento_centro))
     # print(estacionamento_centro.estacionamento)
-    estacionamento_centro.verifica(carro1)
+    # estacionamento_centro.verifica(carro1)
     # estacionamento_centro.verifica(moto1)
-    estacionamento_centro.registra_saida(carro1, 2.0)
+    estacionamento_centro.registra_entrada(mensalista1)
+    estacionamento_centro.registra_saida(mensalista1, 70.0)
+    estacionamento_centro.registra_entrada(mensalista1)
+    estacionamento_centro.registra_saida(mensalista1, 70.0)
+    estacionamento_centro.registra_entrada(mensalista1)
+    estacionamento_centro.registra_saida(mensalista1, 61.5)
+    # estacionamento_centro.registra_entrada(mensalista1)
+    # estacionamento_centro.registra_saida(mensalista1, 10.0)
+    # estacionamento_centro.registra_entrada(mensalista1)
+    # estacionamento_centro.registra_saida(mensalista1, 2.0)
     # estacionamento_centro.gera_relatorio()
+    estacionamento_centro.registra_saida(carro1, 3.0)
     estacionamento_centro.registra_saida(caminhao1, 2.5)
-    # estacionamento_centro.registra_saida(caminhao2, 1.5)
+    estacionamento_centro.registra_saida(caminhao2, 1.5)
     estacionamento_centro.registra_saida(moto1, 4.0)
     estacionamento_centro.registra_saida(onibus1, 2.5)
     estacionamento_centro.gera_relatorio()
