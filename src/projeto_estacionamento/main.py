@@ -142,7 +142,7 @@ class Mensalista(Veiculo):
                 while tempo > 0:
                     tarifa += 8
                     tempo -= 1
-                self.franquia_restante = 0
+            self.franquia_restante = 0
         return tarifa
 
 

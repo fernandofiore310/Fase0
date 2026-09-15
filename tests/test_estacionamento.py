@@ -33,6 +33,7 @@ def test_se_saiu(sistema, carro):
     sistema.registra_saida(carro, 2.0)
     assert carro.placa not in sistema.estacionamento
     assert carro.__class__.__name__ in sistema.relatorio
+    assert sistema.relatorio[carro.__class__.__name__]["Faturamento"] == 20
 
 
 def test_tira_falso(sistema, carro):
@@ -61,3 +62,15 @@ def test_registra(veiculo, tempo, resultado_esperado):
     assert (
         veiculo("LFG6565").registra_saida_e_calcula_tarifa(tempo) == resultado_esperado
     )
+
+
+def test_mensalista():
+    mensalista = Mensalista("FFF8888")
+    mensalista.registra_saida_e_calcula_tarifa(200.0)
+    assert mensalista.franquia_restante == 0
+
+
+def test_mensalista2():
+    mensalista = Mensalista("LFF8888")
+    mensalista.registra_saida_e_calcula_tarifa(160.0)
+    assert mensalista.franquia_restante == 40
