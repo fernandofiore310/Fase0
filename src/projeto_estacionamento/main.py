@@ -2,6 +2,15 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 
 
+def calcula_tarifa_carro(tempo):
+    tarifa = 12  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
+    tempo -= 1
+    while tempo > 0:
+        tarifa += 8
+        tempo -= 1
+    return tarifa
+
+
 @dataclass
 class Sistema:
     estacionamento: dict = field(default_factory=dict)
@@ -69,7 +78,6 @@ class Sistema:
 @dataclass
 class Veiculo(ABC):
     placa: str
-    tempo_estacionado: float = 0.0
 
     def registra_entrada(self):
         print(f"Veículo de placa {self.placa} estacionado!")
@@ -81,14 +89,7 @@ class Veiculo(ABC):
 
 class Carro(Veiculo):
     def registra_saida_e_calcula_tarifa(self, tempo):
-        tarifa = (
-            12  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
-        )
-        tempo -= 1
-        while tempo > 0:
-            tarifa += 8
-            tempo -= 1
-        return tarifa
+        return calcula_tarifa_carro(tempo=tempo)
 
 
 class Moto(Veiculo):
@@ -126,74 +127,44 @@ class Mensalista(Veiculo):
     franquia_restante: float = 200.0
 
     def registra_saida_e_calcula_tarifa(self, tempo):
-        print(f"Franquia: {self.franquia_restante}")
         tarifa = 0
         if self.franquia_restante - tempo > 0:
-            print(f"Franquia restante: {self.franquia_restante - tempo}")
             self.franquia_restante -= tempo
         else:
-            print(f"Franquia restante: {self.franquia_restante - tempo}")
             tempo = -(self.franquia_restante - tempo)
             if tempo == 0:
                 tarifa = 0
             else:
-                tarifa = 12  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
-                tempo -= 1
-                while tempo > 0:
-                    tarifa += 8
-                    tempo -= 1
+                tarifa = calcula_tarifa_carro(tempo=tempo)
             self.franquia_restante = 0
         return tarifa
 
 
 if __name__ == "__main__":
     carro1 = Carro("AAC1234")
-    # print(carro1.__class__)
-    # print(carro1.__class__.__name__)
-    # print(type(carro1.__class__.__name__))
-    # Teste 1: Veja o tipo de cada elemento
-    # print(type(Carro))   # O que retorna?
-    # print(type(carro1))  # O que retorna?
-
-    # Teste 2: Tente acessar a tupla de atributos da instância vs classe
-    # print(dir(carro1))   # Procure se __name__ está aqui
-    # print(dir(Carro))    # Procure se __name__ está aqui
-    # print(str(carro1))
-
     caminhao1 = Caminhao("JJE4545")
     caminhao2 = Caminhao("ABB7265")
     moto1 = Moto("FOF3100")
+    moto2 = Moto("FPF3100")
     onibus1 = Onibus("LFF5439")
     mensalista1 = Mensalista("LFF5434")
 
     estacionamento_centro = Sistema()
-    # print(repr(estacionamento_centro))
     estacionamento_centro.registra_entrada(carro1)
     estacionamento_centro.registra_entrada(caminhao1)
     estacionamento_centro.registra_entrada(caminhao2)
     estacionamento_centro.registra_entrada(moto1)
     estacionamento_centro.registra_entrada(onibus1)
-    # print(repr(estacionamento_centro))
-    # print(estacionamento_centro.estacionamento)
-    # estacionamento_centro.verifica(carro1)
-    # estacionamento_centro.verifica(moto1)
     estacionamento_centro.registra_entrada(mensalista1)
+
+    estacionamento_centro.verifica(carro1)
+    estacionamento_centro.verifica(moto2)
+
     estacionamento_centro.registra_saida(mensalista1, 70.0)
-    estacionamento_centro.registra_entrada(mensalista1)
-    estacionamento_centro.registra_saida(mensalista1, 70.0)
-    estacionamento_centro.registra_entrada(mensalista1)
-    estacionamento_centro.registra_saida(mensalista1, 61.5)
-    # estacionamento_centro.registra_entrada(mensalista1)
-    # estacionamento_centro.registra_saida(mensalista1, 10.0)
-    # estacionamento_centro.registra_entrada(mensalista1)
-    # estacionamento_centro.registra_saida(mensalista1, 2.0)
-    # estacionamento_centro.gera_relatorio()
     estacionamento_centro.registra_saida(carro1, 3.0)
     estacionamento_centro.registra_saida(caminhao1, 2.5)
     estacionamento_centro.registra_saida(caminhao2, 1.5)
     estacionamento_centro.registra_saida(moto1, 4.0)
     estacionamento_centro.registra_saida(onibus1, 2.5)
-    estacionamento_centro.gera_relatorio()
 
-    # print(repr(moto1))
-    # print(repr(cliente1))
+    estacionamento_centro.gera_relatorio()

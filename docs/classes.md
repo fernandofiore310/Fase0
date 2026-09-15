@@ -27,3 +27,7 @@ Vai ser a própria classe Mensalista que vai fazer essa conta. Ela basicamente v
 ## Minha escolha
 
 Escolhi criar a classe Mensalista, herdando de Veiculo, e dentro dela (Mensalista) criar o atributo de franquia e no seu método de calcular tarifa, basicamente copiar o método do Carro, porém com uma verificação da franquia antes de chegar nesse cálculo.
+
+## Questão da dupla função de calcular tarifa de carro
+
+Como escolhi herdar Mensalista de Veículo, preferi criar uma função "solta", no começo do arquivo, para evitar a repetição de código no meu arquivo. Preferi fazer dessa maneira, do que criar um atributo com valor Carro() na classe Mensalista. Isso porque, mesmo que eu so fosse usar a funcao de calcular a tarifa, ia parecer que todo o Mensalista dirige um carro, o que não é verdade e é o princípio que desenhei todo o corpo do meu código em cima.
