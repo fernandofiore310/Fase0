@@ -308,3 +308,25 @@ tempo_estacionado, sem uso desde quarta
 o **main** com trinta linhas comentadas
 duplicação da tarifa do carro no mensalista
 teste da permanência média
+
+### 2026-09-15 — Terça (2h)
+
+O que fiz:
+No Bloco 1, usei os 20 minutos todos. Aprendi o que na pratica o reset faz, apenas move o ponteiro HEAD para o commit que especifico no comando. Depois vi que o reflog é uma espécie de log que contém até os commits que foram "pulados" pelo reset. Logo é uma maneira de você ter acesso ao hash que foi pulado e usar de novo no reset para voltar àquele estado.
+Além disso, aprendi a usar o rebase. Usei o Gemini e o GPT para me ajudarem na questão de squash (método que "apaga" o commit), e no começo, dei squash no commit mais recente, o que deu errado, e então, dei um --abort no rebase e dei um squash no commit mais antigo, deixando o pick no mais recente. Então, na segunda tela que o rebase expõe, a de mudar a mensagem, também usei a ajuda dos agentes para saber o que alterar.
+O Bloco 2 fiz bem rápido. Apenas na tarefa 4 que eu e o Claude discutimos sobre qual era a melhor maneira de se fazer, considerando a maneira que eu estava desenvolvendo o algoritmo do estacionamento como um todo. Mas tirando tudo isso, foi tudo bem.
+Por fim, o Bloco 3 foi bem tranquilo também. Os testes de permanência foram desenvolvidos e passaram. Além disso, nunca tinha usado o mypy, baixei ele no ambiente virtual e usei. O GPT me ajudou com um problema que deu quando rodei mypy tests\test_estacionamento.py, que pelo qeu entendi, era um problema que o interpretador não estava conseguindo interpretar a linha em que importo o main.py. Usei o mypy src tests e deu tudo certo.
+Link do repositorio teste: https://github.com/fernandofiore310/repo_teste
+
+Onde travei:
+Diria que fiquei um tempinho no rebase para entender as interfaces e como tudo funcionava. E também esse problema do mypy no arquivo test_estacionamento.py.
+
+O que eu ainda nao entendo:
+A diferença entre git rebase e git rebase -i.
+Porque o mypy tests\test_estacionamento.py deu problema.
+
+Sensacao vs. resultado:
+Acredito que fui bem hoje.
+
+Pendências:
+Escrever o README.md
