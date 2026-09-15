@@ -280,3 +280,31 @@ Acredito que fiu bem hoje.
 
 Pendências:
 Nenhuma acredito
+
+### 2026-09-14 — Segunda (1h)
+
+O que fiz:
+No Bloco 1, fiz sem grandes problemas. Comecei desenvolvendo o teste do mensalista (fora do parametrize, pois não sabia como adicionar a franquia ao parametrize sendo que as outras classes não possuem esse método). Tendo feito isso, rodei os testes, e deu vermelho, o que era esperado. Então, arrumei o método no main.py, onde apenas coloquei a linha que zerava a franquia fora daquele bloco else, de modo que tanto o if tarifa == 0 e o else passassem por essa linha. Isso deu certo.
+Feito isso, parti para o teste de adicionar o teste que verifica se o atualiza_relatorio esta preenchendo certo. Esse acabei demorando um pouco mais, pois fiquei tentando varias coisas (como tentando ver se o dicionario estava vazio ou se o valor de relatorio[nome] era None) que deram errado, e depois, acabei sendo mais direto ao ponto para testar o valor, o que deu certo.
+
+Feito isso, parti para o Bloco 2, onde fiquei praticamente 20 minutos dos 25 fazendo o exercicio 1. Fiz todo o processo de criar o repositorio e subi-lo para o github. Depois, como queria fazer tudo por CLI, acabei usando o Gemini para ir lembrando de comandos para cirar arquivos, edita-los, etc. Alem disso, usei o Git Guides para lembrar rapidamente sobre os comandos de branches, alem do fato de nunca ter usado stash na minha vida, o que fez eu usar o git stash --help e ir vendo como funcionava a parada.
+Assim que acabei, estava no meio do processo de editar o arquivo e commitar a segunda vez, e o tempo esgotou. Logo nao fiz mais nada.
+Link do repositorio teste: https://github.com/fernandofiore310/repo_teste
+
+Onde travei:
+Diria que fiquei um tempinho ali no teste do atualiza_relatorio, mas mais pelo fato de eu nao querer testar apenas se o ["Faturamento"] tinha sido criado, queria ver se o subdicionario inteiro tinha, o que acabou levando um pouco mais de tempo.
+Alem disso, como estava aprendendo sobre o stash, acabei gastando um pouco mais de tempo.
+
+O que eu ainda nao entendo:
+O stash é uma espécie de pilha? Como ela funciona? Da para adicionar mais coisas? Para que serve?
+
+Sensacao vs. resultado:
+Acredito que fui ok hoje. De fato, nao tinha o conhecimento no git para fazer na velocidade esperada, mas acredito que estou melhorando.
+
+Pendências:
+rebase -i e reflog
+prints de depuração dentro do cálculo do mensalista
+tempo_estacionado, sem uso desde quarta
+o **main** com trinta linhas comentadas
+duplicação da tarifa do carro no mensalista
+teste da permanência média
