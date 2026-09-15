@@ -3,10 +3,10 @@ import pytest
 from projeto_estacionamento.main import (  # a pasta src nao deve ser referida como diretorio quando vai importar um arquivo
     Caminhao,
     Carro,
+    Mensalista,
     Moto,
     Onibus,
     Sistema,
-    Mensalista,
 )
 
 
@@ -74,3 +74,23 @@ def test_mensalista2():
     mensalista = Mensalista("LFF8888")
     mensalista.registra_saida_e_calcula_tarifa(160.0)
     assert mensalista.franquia_restante == 40
+
+
+def test_permanencia(sistema):
+    carro1 = Carro("AAC1234")
+    moto1 = Moto("XPT0909")
+    bus1 = Onibus("XPL0909")
+    mensalista1 = Mensalista("XET0909")
+
+    sistema.registra_entrada(carro1)
+    sistema.registra_entrada(moto1)
+    sistema.registra_entrada(bus1)
+    sistema.registra_entrada(mensalista1)
+
+    sistema.registra_saida(carro1, 2.0)
+    sistema.registra_saida(moto1, 1.0)
+    sistema.registra_saida(bus1, 0.5)
+    sistema.registra_saida(mensalista1, 8.5)
+
+    _, permanencia = sistema.calcula_relatorio()
+    assert permanencia == 3.0
