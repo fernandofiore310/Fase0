@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 
 
-def calcula_tarifa_carro(tempo):
+def calcula_tarifa_carro(tempo: float) -> float:
     tarifa = 12  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (12)
     tempo -= 1
     while tempo > 0:
@@ -12,15 +12,80 @@ def calcula_tarifa_carro(tempo):
 
 
 @dataclass
+class Veiculo(ABC):
+    placa: str
+
+    def registra_entrada(self):
+        print(f"Veículo de placa {self.placa} estacionado!")
+
+    @abstractmethod
+    def registra_saida_e_calcula_tarifa(self, tempo: float) -> float:
+        pass
+
+
+class Carro(Veiculo):
+    def registra_saida_e_calcula_tarifa(self, tempo: float) -> float:
+        return calcula_tarifa_carro(tempo=tempo)
+
+
+class Moto(Veiculo):
+    def registra_saida_e_calcula_tarifa(self, tempo: float) -> float:
+        tarifa = (
+            6  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (6)
+        )
+        tempo -= 1
+        while tempo > 0:
+            tarifa += 4
+            tempo -= 1
+        return tarifa
+
+
+class Caminhao(Veiculo):
+    def registra_saida_e_calcula_tarifa(self, tempo: float) -> float:
+        tarifa = 25
+        while tempo > 0:
+            tarifa += 15
+            tempo -= 1
+        return tarifa
+
+
+class Onibus(Veiculo):
+    def registra_saida_e_calcula_tarifa(self, tempo: float) -> float:
+        tarifa = 30
+        while tempo > 0:
+            tarifa += 20
+            tempo -= 1
+        return tarifa
+
+
+@dataclass
+class Mensalista(Veiculo):
+    franquia_restante: float = 200.0
+
+    def registra_saida_e_calcula_tarifa(self, tempo: float) -> float:
+        tarifa = 0.0
+        if self.franquia_restante - tempo > 0:
+            self.franquia_restante -= tempo
+        else:
+            tempo = -(self.franquia_restante - tempo)
+            if tempo == 0:
+                tarifa = 0
+            else:
+                tarifa = calcula_tarifa_carro(tempo=tempo)
+            self.franquia_restante = 0
+        return tarifa
+
+
+@dataclass
 class Sistema:
     estacionamento: dict = field(default_factory=dict)
     relatorio: dict = field(default_factory=dict)
 
-    def registra_entrada(self, veiculo):
+    def registra_entrada(self, veiculo: Veiculo):
         veiculo.registra_entrada()
         self.estacionamento[veiculo.placa] = veiculo
 
-    def registra_saida(self, veiculo, tempo):
+    def registra_saida(self, veiculo: Veiculo, tempo: float):
         if veiculo.placa in self.estacionamento:
             tarifa = veiculo.registra_saida_e_calcula_tarifa(tempo)
             self.atualiza_relatorio(veiculo, tarifa, tempo)
@@ -30,7 +95,7 @@ class Sistema:
         else:
             print("Veículo não encontrado no estacionamento!")
 
-    def atualiza_relatorio(self, veiculo, tarifa, tempo):
+    def atualiza_relatorio(self, veiculo: Veiculo, tarifa: float, tempo: float):
         nome = veiculo.__class__.__name__
         if nome not in self.relatorio:
             self.relatorio[nome] = {}
@@ -42,7 +107,7 @@ class Sistema:
             self.relatorio[nome]["Quantidade Veiculos"] += 1
             self.relatorio[nome]["Tempo Total"] += tempo
 
-    def calcula_relatorio(self):
+    def calcula_relatorio(self) -> tuple[float, float]:
         faturamento_total = sum(
             dados["Faturamento"] for dados in self.relatorio.values()
         )
@@ -73,71 +138,6 @@ class Sistema:
             print(f"Veículo de placa {veiculo.placa} está estacionado")
         else:
             print(f"Veículo de placa {veiculo.placa} não está estacionado")
-
-
-@dataclass
-class Veiculo(ABC):
-    placa: str
-
-    def registra_entrada(self):
-        print(f"Veículo de placa {self.placa} estacionado!")
-
-    @abstractmethod
-    def registra_saida_e_calcula_tarifa(self, tempo):
-        pass
-
-
-class Carro(Veiculo):
-    def registra_saida_e_calcula_tarifa(self, tempo):
-        return calcula_tarifa_carro(tempo=tempo)
-
-
-class Moto(Veiculo):
-    def registra_saida_e_calcula_tarifa(self, tempo):
-        tarifa = (
-            6  # agora, qualquer tempo menor ou igual a 1 hora paga o valor cheio (6)
-        )
-        tempo -= 1
-        while tempo > 0:
-            tarifa += 4
-            tempo -= 1
-        return tarifa
-
-
-class Caminhao(Veiculo):
-    def registra_saida_e_calcula_tarifa(self, tempo):
-        tarifa = 25
-        while tempo > 0:
-            tarifa += 15
-            tempo -= 1
-        return tarifa
-
-
-class Onibus(Veiculo):
-    def registra_saida_e_calcula_tarifa(self, tempo):
-        tarifa = 30
-        while tempo > 0:
-            tarifa += 20
-            tempo -= 1
-        return tarifa
-
-
-@dataclass
-class Mensalista(Veiculo):
-    franquia_restante: float = 200.0
-
-    def registra_saida_e_calcula_tarifa(self, tempo):
-        tarifa = 0
-        if self.franquia_restante - tempo > 0:
-            self.franquia_restante -= tempo
-        else:
-            tempo = -(self.franquia_restante - tempo)
-            if tempo == 0:
-                tarifa = 0
-            else:
-                tarifa = calcula_tarifa_carro(tempo=tempo)
-            self.franquia_restante = 0
-        return tarifa
 
 
 if __name__ == "__main__":

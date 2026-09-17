@@ -7,28 +7,29 @@ from projeto_estacionamento.main import (  # a pasta src nao deve ser referida c
     Moto,
     Onibus,
     Sistema,
+    Veiculo,
 )
 
 
 # Fixtures podem ser declaradas em cima, e as funcoes que usam a sua saida como parametro podem ficar em qualquer lugar do arquivo
 @pytest.fixture
-def sistema():
+def sistema() -> Sistema:
     sistema = Sistema()
     return sistema
 
 
 @pytest.fixture
-def carro():
+def carro() -> Carro:
     carro = Carro("AAC1234")
     return carro
 
 
-def test_se_entrou(sistema, carro):
+def test_se_entrou(sistema: Sistema, carro: Carro):
     sistema.registra_entrada(carro)
     assert carro.placa in sistema.estacionamento
 
 
-def test_se_saiu(sistema, carro):
+def test_se_saiu(sistema: Sistema, carro: Carro):
     sistema.registra_entrada(carro)
     sistema.registra_saida(carro, 2.0)
     assert carro.placa not in sistema.estacionamento
@@ -36,7 +37,7 @@ def test_se_saiu(sistema, carro):
     assert sistema.relatorio[carro.__class__.__name__]["Faturamento"] == 20
 
 
-def test_tira_falso(sistema, carro):
+def test_tira_falso(sistema: Sistema, carro: Carro):
     sistema.registra_saida(carro, 2.0)
     assert carro.__class__.__name__ not in sistema.relatorio
 
@@ -58,7 +59,7 @@ def test_tira_falso(sistema, carro):
         (Mensalista, 202, 20),
     ],
 )
-def test_registra(veiculo, tempo, resultado_esperado):
+def test_registra(veiculo: type[Veiculo], tempo: float, resultado_esperado: float):
     assert (
         veiculo("LFG6565").registra_saida_e_calcula_tarifa(tempo) == resultado_esperado
     )
@@ -76,7 +77,7 @@ def test_mensalista2():
     assert mensalista.franquia_restante == 40
 
 
-def test_permanencia(sistema):
+def test_permanencia(sistema: Sistema):
     carro1 = Carro("AAC1234")
     moto1 = Moto("XPT0909")
     bus1 = Onibus("XPL0909")
