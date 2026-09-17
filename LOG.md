@@ -330,3 +330,35 @@ Acredito que fui bem hoje.
 
 Pendências:
 Escrever o README.md
+
+### 2026-09-16 — Relatório de fim de Fase (3h)
+
+**Critério 1 - Escrever uma classe com dataclass, **repr** e type hints sem consultar sintaxe.**
+Acredito que hoje, tendo finalizado a Fase 0, consigo escrever classes com dataclass e **repr** sem consultar a sintaxe. Claro, digo isso caso eu use o **repr** tendo usado o dataclass na Classe, pois caso tivesse que escrever o método **repr** de cor sozinho eu não lembraria.
+Em relação aos type hints, acredito que conseguiria também escrever sem sintaxe, no entanto, ainda acredito que teria que tirar dúvidas com IA ou olhar documentação em casos como o de classes ou instâncias, funções que retornam mais de uma coisa, entre outras coisas que são meio específicas.
+Além disso, em relação ao mypy, entendi parcialmente a sua função. Entendi que ele verifica se as tipagens do meu código estão coerentes com o jeito que o escrevi. Mas a finalidade dele, em python pelo menos, ainda não ficou das coisas mais claras.
+Acredito que, na sua maior parte, está cumprido. Acredito que os pontos que coloquei aqui vão fixando conforme vou fazendo mais projetos.
+
+**Critério 2 - Explicar, sobre um ponto específico do seu código, por que composição e não herança.**
+Vou falar, mais uma vez sobre a questão do Mensalista. A princípio, na minha cabeça, fazia mais sentido eu criar a classe Mensalista herdando da classe Carro, visto que ambos iam ter que compartilhar o mesmo cálculo de tarifas. No entanto, pensando no contexto teórico do código, achei que fazia mais sentido, herdar a classe Mensalista da classe Veículo. Isso porque, um mensalista pode ter qualquer tipo de carro, logo, não fazia sentido na minha cabeça. Por mais que eu pudesse fazê-lo herdando de carro, e considerar que só fiz isso para não precisar mexer na função de calcular tarifa, não fazia sentido para mim.
+Então, fiz ele herdar de Veiculo, e criei uma função separada, para não precisar escrever o cálculo de calcular tarifa do carro duas vezes em dois lugares diferentes.
+Acredito que esse critério foi cumprido.
+
+**Critério 3 - Ônibus sem alterar o cálculo.**
+Esse acredito que foi o critério que eu mais evoluí no projeto. Fui de um código completamente manual, com blocos if/elif para cada tipo de Veiculo, para entender que eu poderia criar uma classe para cada um, cada um ter seu proprio metodo de calcular tarifa, e o Sistema poder manipular e usar qualquer uma dessas classes sem precisar de uma verificacao (if). Tanto que, em um dos dias, criei a classe Onibus, e no git diff, e nao houve mudanca alguma na classe Sistema.
+Acredito que esse criterio foi cumprido tambem.
+
+**Critério 4 - pytest verde, com pelo menos um teste que falharia se você quebrasse a lógica de propósito**
+Esse aqui acredito que o critério foi cumprido. Entendi para que funciona o teste, como escrevê-los, usar o fixture e o parametrize, e como ele é importante para o código. Como teste, alterei a função de calcular tarifa da classe Caminhao.Primeira coisa que fiz foi trocar tempo -= 1 para tempo += 1. Quando rodei os testes, os testes não acabaram pois entrou em loop infinito (era esperado). Depois, troquei o tarifa += 15 por tarifa += 13. E aconteceu o esperado, os dois testes do Caminhao que tinha feito falharam.
+
+**Critério 5 - Tempo dos exercícios do Bloco A em queda mensurável**
+Aqui, foi onde vi sinal de evolução. Fui de nenhum exercício rodando em 75 minutos no diagnostico a frio para ter conseguido aprender e fazer os exercicios. Fui marcando os tempos nas mensagens dos commits entao as evidencias estarão la. Acredito que foi cumprido esse critério.
+
+**Alguns conceitos ainda frágeis**
+Ainda não entendo algumas coisas, como alguns comandos de git, o fato de ativar o ambiente virtual, requirements.txt e settings.py vs pyproject.toml (não sei se vale aprofundar muito aqui), algumas duvidas bobas de git, mas mais conceituais, como repositorio local e remoto, questao do pip install -e e de instalacao de dependencias do projeto e obviamente vi muitas funcoes diferentes nos drills que provavelmente nao saberia usa-las de cabeca, teria que revisar. Esse ultimo ponto vale para alguns comandos de git, de venv e ate mesmo de instalacao, e bibliotecas especificas.
+
+**Horas cumpridas vs. planejadas**
+Não perdi nenhum dia nessa Fase. Trabalhei todos os dias e horários que combinamos que haveria trabalho. Isso foi bom!
+
+**Repositório**
+https://github.com/fernandofiore310/Fase0
