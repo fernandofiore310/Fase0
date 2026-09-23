@@ -48,7 +48,7 @@ venv\Scripts\activate
 Este projeto gerencia dependências via `pyproject.toml`.
 
 ```bash
-pip install .--group <dependency-groups>
+pip install . --group dev
 ```
 
 **4. Executar projeto**
@@ -87,5 +87,5 @@ Caso esse projeto fosse ser, futuramente, usado em uma aplicação real, acredit
 
 ### Conflito do tempo de permanência média e relatório diário
 
-Ao testar a Classe Menaslista, é normal que se passe tempos altíssimos como parâmetro do seu método de calcular tarifa, de modo a testar se o Sistema passa a cobrá-lo após as 200 horas mensais. Isso acaba gerando um conflito, pois imagine que coloquei que o Mensalista ficou 210 horas no estacionamento, de modo a ver se o Sistema cobra corretamente essas 10 horas adicionais do plano do mensalista. Se caso, depois disso, eu pedir para o Sistema gerar o relatório diário, essas 210 horas que passei anteriormente, vão entrar no cálculo de permanência média do dia. Porém, como é algo óbvio de se notar, é impossível um dia ter 210 horas.
-Logo, é apenas uma inconsistência que surgiu, que é meio inevitável.
+Ao testar a Classe Menaslista, é normal que se passe tempos altíssimos como parâmetro do seu método de calcular tarifa, de modo a testar se o Sistema passa a cobrá-lo após as 200 horas mensais. Por exemplo, imagine que coloquei que o Mensalista ficou 210 horas no estacionamento, de modo a ver se o Sistema cobra corretamente essas 10 horas adicionais do plano do mensalista. Se caso, depois disso, eu pedir para o Sistema gerar o relatório diário, essas 210 horas que passei anteriormente, vão entrar no cálculo de permanência média do dia. Porém, como é algo óbvio de se notar, é impossível um dia ter 210 horas.
+Logo, vale a pena comentar aqui que isso foi decisão de escopo: o relatório cobre um dia, a franquia acumula ao longo do mês, e o sistema não modela a virada do mês.
