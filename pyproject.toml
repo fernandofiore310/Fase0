@@ -21,3 +21,6 @@ extend-exclude = [
     "diagnostico",
     "drills",
 ]
+
+[tool.mypy]
+disallow_untyped_defs = true

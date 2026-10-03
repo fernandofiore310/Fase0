@@ -15,7 +15,7 @@ def calcula_tarifa_carro(tempo: float) -> float:
 class Veiculo(ABC):
     placa: str
 
-    def registra_entrada(self):
+    def registra_entrada(self) -> None:
         print(f"Veículo de placa {self.placa} estacionado!")
 
     @abstractmethod
@@ -81,11 +81,11 @@ class Sistema:
     estacionamento: dict = field(default_factory=dict)
     relatorio: dict = field(default_factory=dict)
 
-    def registra_entrada(self, veiculo: Veiculo):
+    def registra_entrada(self, veiculo: Veiculo) -> None:
         veiculo.registra_entrada()
         self.estacionamento[veiculo.placa] = veiculo
 
-    def registra_saida(self, veiculo: Veiculo, tempo: float):
+    def registra_saida(self, veiculo: Veiculo, tempo: float) -> None:
         if veiculo.placa in self.estacionamento:
             tarifa = veiculo.registra_saida_e_calcula_tarifa(tempo)
             self.atualiza_relatorio(veiculo, tarifa, tempo)
@@ -95,7 +95,7 @@ class Sistema:
         else:
             print("Veículo não encontrado no estacionamento!")
 
-    def atualiza_relatorio(self, veiculo: Veiculo, tarifa: float, tempo: float):
+    def atualiza_relatorio(self, veiculo: Veiculo, tarifa: float, tempo: float) -> None:
         nome = veiculo.__class__.__name__
         if nome not in self.relatorio:
             self.relatorio[nome] = {}
@@ -122,7 +122,7 @@ class Sistema:
             permanencia_media = 0.0
         return faturamento_total, permanencia_media
 
-    def gera_relatorio(self):
+    def gera_relatorio(self) -> None:
         f, p = self.calcula_relatorio()
         print("----------------------------------------------")
         print("Relatório Diário do Estacionamento")
@@ -133,7 +133,7 @@ class Sistema:
         print(f"Permanência Média: {p:.2f}")
         print("----------------------------------------------")
 
-    def verifica(self, veiculo):
+    def verifica(self, veiculo: Veiculo) -> None:
         if veiculo.placa in self.estacionamento:
             print(f"Veículo de placa {veiculo.placa} está estacionado")
         else:
